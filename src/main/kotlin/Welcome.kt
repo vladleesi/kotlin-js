@@ -39,21 +39,20 @@ val Welcome = FC<WelcomeProps> { props ->
                 flexDirection = FlexDirection.row
                 maxWidth = 1200.px
             }
-            div {
-                img {
-                    css {
-                        width = 80.px
-                        height = 80.px
-                        float = Float.left
-                        borderRadius = 100.px
-                    }
-                    src = "https://avatars.githubusercontent.com/u/30999008"
-                }
-            }
+//            div {
+//                img {
+//                    css {
+//                        width = 80.px
+//                        height = 80.px
+//                        float = Float.left
+//                        borderRadius = 100.px
+//                    }
+//                    src = "https://avatars.githubusercontent.com/u/30999008"
+//                }
+//            }
             div {
                 css {
 //                color = Color("#64ffda")
-                    color = Color("#000000")
 //                    float = Float.left
                     marginLeft = 8.px
                 }
@@ -77,7 +76,7 @@ val Welcome = FC<WelcomeProps> { props ->
                             width = 24.px
                             height = 24.px
                         }
-                        src = "./ic_mail.png"
+                        src = "./Outlook_black.svg"
                     }
                 }
                 a {
@@ -92,7 +91,7 @@ val Welcome = FC<WelcomeProps> { props ->
                             width = 24.px
                             height = 24.px
                         }
-                        src = "./ic_github_mark.svg"
+                        src = "./Github_black.svg"
                     }
                 }
                 a {
@@ -100,14 +99,14 @@ val Welcome = FC<WelcomeProps> { props ->
                         marginLeft = 8.px
                     }
                     target = AnchorTarget._blank
-                    href = "https://www.linkedin.com/in/vladislav-kochetov/"
+                    href = "https://www.linkedin.com/in/vladislav-kochetov"
 
                     img {
                         css {
                             width = 24.px
                             height = 24.px
                         }
-                        src = "./ic_linkedin.svg"
+                        src = "./LinkedIN_black.svg"
                     }
                 }
             }
@@ -136,9 +135,6 @@ val Welcome = FC<WelcomeProps> { props ->
             }
             div {
                 a {
-                    css {
-                        color = Color("#000000")
-                    }
                     target = AnchorTarget._blank
                     href = "https://github.com/vladleesi/chronicle"
                     +"chronicle"
@@ -146,7 +142,6 @@ val Welcome = FC<WelcomeProps> { props ->
             }
             div {
                 css {
-                    color = Color("#000000")
                     marginLeft = 8.px
                     marginRight = 8.px
                 }
@@ -155,7 +150,6 @@ val Welcome = FC<WelcomeProps> { props ->
             div {
                 a {
                     css {
-                        color = Color("#000000")
 //                        marginLeft = 20.px
                     }
                     target = AnchorTarget._blank
@@ -174,9 +168,6 @@ val Welcome = FC<WelcomeProps> { props ->
         }
         div {
             a {
-                css {
-                    color = Color("#000000")
-                }
                 target = AnchorTarget._blank
                 href = "https://medium.com/@vladleesi/motivation-for-learning-the-key-to-success-20b7fba555b9"
                 +"Motivation for Learning: The Key to Success"
