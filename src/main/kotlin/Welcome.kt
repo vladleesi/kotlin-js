@@ -173,6 +173,16 @@ val Welcome = FC<WelcomeProps> { props ->
                 +"Motivation for Learning: The Key to Success"
             }
         }
+        div {
+            css {
+                marginTop = 8.px
+            }
+            a {
+                target = AnchorTarget._blank
+                href = "https://medium.com/@vladleesi/how-to-choose-the-right-sport-for-you-7c1f46f8ff54"
+                +"How to Choose the Right Sport for You"
+            }
+        }
     }
 }
 
