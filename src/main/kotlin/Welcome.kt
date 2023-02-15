@@ -183,6 +183,16 @@ val Welcome = FC<WelcomeProps> { props ->
                 +"How to Choose the Right Sport for You"
             }
         }
+        div {
+            css {
+                marginTop = 8.px
+            }
+            a {
+                target = AnchorTarget._blank
+                href = "https://medium.com/@vladleesi/getting-started-with-git-a-beginners-guide-f70b72db0a26"
+                +"Getting Started with Git: A Beginner’s Guide"
+            }
+        }
     }
 }
 
