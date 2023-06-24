@@ -4,9 +4,8 @@
     <facet type="kotlin-language" name="Kotlin">
       <configuration version="5" platform="JavaScript " allPlatforms="JS []" useProjectSettings="false" isTestModule="false" externalProjectId="vladleesi-gh-pages">
         <newMppModelJpsModuleKind>COMPILATION_AND_SOURCE_SET_HOLDER</newMppModelJpsModuleKind>
-        <productionOutputPath>$MODULE_DIR$/../../build/classes/kotlin/main</productionOutputPath>
         <compilerSettings>
-          <option name="additionalArguments" value="-Xir-module-name=com.vladleesi:vladleesi-gh-pages -Xir-only -Xir-per-module-output-name=vladleesi-gh-pages -Xir-produce-klib-dir" />
+          <option name="additionalArguments" value="-Xir-module-name=io.github.vladleesi:vladleesi-gh-pages -Xir-only -Xir-per-module-output-name=vladleesi-gh-pages -Xir-produce-klib-dir -ir-output-name vladleesi-gh-pages -ir-output-dir C:\Users\alkor\Documents\Github\vladleesi-gh-pages\build\classes\kotlin\main" />
         </compilerSettings>
         <compilerArguments>
           <flagArguments>
@@ -17,11 +16,10 @@
           <stringArguments>
             <stringArg name="main" arg="call" />
             <stringArg name="moduleKind" arg="umd" />
-            <stringArg name="outputFile" arg="$MODULE_DIR$/../../build/classes/kotlin/main" />
             <stringArg name="sourceMapEmbedSources" arg="never" />
             <stringArg name="target" arg="v5" />
-            <stringArg name="apiVersion" arg="1.7" />
-            <stringArg name="languageVersion" arg="1.7" />
+            <stringArg name="apiVersion" arg="1.8" />
+            <stringArg name="languageVersion" arg="1.8" />
           </stringArguments>
           <arrayArguments>
             <arrayArg name="pluginClasspaths" />
