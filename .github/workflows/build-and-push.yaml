@@ -1,0 +1,28 @@
+name: Build and Distribute
+
+on:
+  push:
+    branches: [ develop ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Set up JDK 17
+        uses: actions/setup-java@v2
+        with:
+          java-version: '17'
+
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Build project
+        run: ./gradlew clean build
+
+      - name: Push to master branch
+        if: ${{ success() }}
+        uses: ad-m/github-push-action@master
+        with:
+          branch: master
+          force: true

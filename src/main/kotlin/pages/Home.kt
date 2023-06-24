@@ -242,6 +242,23 @@ val HomePage = VFC {
                     +"Yet Another Calculator"
                 }
             }
+            div {
+                css {
+                    marginLeft = 8.px
+                    marginRight = 8.px
+                }
+                +"•"
+            }
+            div {
+                a {
+                    css {
+//                        marginLeft = 20.px
+                    }
+                    // target = AnchorTarget._blank
+                    href = "https://github.com/vladleesi/scanmate"
+                    +"Scanmate"
+                }
+            }
         }
 //        div {
 //            css {

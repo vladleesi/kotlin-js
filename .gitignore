@@ -3,3 +3,6 @@
 /build/
 /build/classes/kotlin/main/
 /.idea
+/node_modules
+package.json
+package-lock.json

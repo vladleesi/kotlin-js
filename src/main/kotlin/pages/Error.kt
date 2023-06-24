@@ -5,6 +5,6 @@ import react.dom.html.ReactHTML
 
 val Error = VFC {
     ReactHTML.h1 {
-        +"Error yopta"
+        +"Unknown error"
     }
 }
