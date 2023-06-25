@@ -18,6 +18,7 @@ val appStyle = document.createElement("style").apply {
         body {
             width: 100%;
             font-family: 'Quicksand', sans-serif;
+            
             margin-top: 0px;
             margin-bottom: 0px;
             margin-right: 0px;
@@ -25,7 +26,7 @@ val appStyle = document.createElement("style").apply {
             
             /* Styles for mobile screens */
             @media screen and (max-width: 767px) {
-                width: 50%;
+                
             }
         
             /* Styles for desktop screens */

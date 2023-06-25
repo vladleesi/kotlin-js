@@ -1,8 +1,5 @@
 import js.core.jso
-import pages.BraindancePage
-import pages.Error
-import pages.HomePage
-import pages.KutiliciousPage
+import pages.*
 import react.VFC
 import react.create
 import react.dom.client.createRoot
@@ -29,6 +26,11 @@ private val appRouter = createHashRouter(
             path = "/kutilicious"
             element = KutiliciousPage.create()
             errorElement = Error.create()
+        },
+        jso {
+            path = "/yet-another-calculator"
+            element = YetAnotherCalculatorPage.create()
+            errorElement = Error.create()
         }
     ),
 )
@@ -40,9 +42,11 @@ private val App = VFC {
 }
 
 fun main() {
-    document.head.appendChild(faviconLink)
-    document.head.appendChild(fontLink)
-    document.head.appendChild(appStyle)
+    with(document.head) {
+        appendChild(faviconLink)
+        appendChild(fontLink)
+        appendChild(appStyle)
+    }
 
     val root = document.createElement("div")
         .also(document.body::appendChild)
