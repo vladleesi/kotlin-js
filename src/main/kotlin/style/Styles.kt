@@ -1,17 +1,8 @@
 package style
 
+import csstype.PropertiesBuilder
+import web.cssom.*
 import web.dom.document
-
-val fontLink = document.createElement("link").apply {
-    setAttribute("rel", "stylesheet")
-    setAttribute("href", "https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap")
-}
-
-val faviconLink = document.createElement("link").apply {
-    setAttribute("rel", "icon")
-    setAttribute("type", "image/svg")
-    setAttribute("href", "./favicon.svg")
-}
 
 val appStyle = document.createElement("style").apply {
     innerHTML = """
@@ -35,4 +26,36 @@ val appStyle = document.createElement("style").apply {
             }
         }
     """
+}
+
+fun PropertiesBuilder.buildFooterStyle() {
+    backgroundColor = footerBlack
+    margin = 0.px
+    padding = 10.px
+    display = Display.flex
+    height = 3.em
+}
+
+fun PropertiesBuilder.buildFooterContentStyle() {
+    flex = Flex.content
+    color = white
+    display = Display.flex
+    justifyContent = JustifyContent.center
+    alignItems = AlignItems.center
+}
+
+fun PropertiesBuilder.buildFooterLinkStyle() {
+    color = white
+    textDecoration = TextDecoration.blink
+    hover {
+        color = hoverOnWhiteColor
+    }
+}
+
+fun PropertiesBuilder.buildBodyLinkStyle() {
+    color = black
+    textDecoration = TextDecoration.blink
+    hover {
+        color = hoverOnBlackColor
+    }
 }

@@ -8,62 +8,38 @@ import react.dom.html.ReactHTML.footer
 import react.dom.html.ReactHTML.h1
 import react.dom.html.ReactHTML.h3
 import react.router.Outlet
+import style.buildBodyLinkStyle
+import style.buildFooterContentStyle
+import style.buildFooterLinkStyle
+import style.buildFooterStyle
 import web.cssom.*
+import web.window.WindowTarget
 
 val HomePage = VFC {
 
     footer {
-        css {
-            backgroundColor = Color("#171717")
-            margin = 0.px
-            padding = 10.px
-            display = Display.flex
-            height = 3.em
-        }
+        css { buildFooterStyle() }
         id = "footer"
 
         div {
-            css {
-                flex = Flex.content
-                color = Color("#ffffff")
-                display = Display.flex
-                justifyContent = JustifyContent.center
-                alignItems = AlignItems.center
-            }
+            css { buildFooterContentStyle() }
             a {
-                css {
-                    color = Color("#FFFFFF")
-                    textDecoration = TextDecoration.blink
-                    hover {
-                        color = Color("#D9D9D9")
-                    }
-                }
+                css { buildFooterLinkStyle() }
                 href = "mailto:vladleesi@outlook.com"
                 +"vladleesi@outlook.com"
             }
         }
 
         div {
-            css {
-                flex = Flex.content
-                color = Color("#ffffff")
-                display = Display.flex
-                justifyContent = JustifyContent.center
-                alignItems = AlignItems.center
-            }
+            css { buildFooterContentStyle() }
             div {
                 css {
                     marginRight = 8.px
                 }
                 a {
-                    css {
-                        color = Color("#FFFFFF")
-                        textDecoration = TextDecoration.blink
-                        hover {
-                            color = Color("#D9D9D9")
-                        }
-                    }
+                    css { buildFooterLinkStyle() }
                     href = "https://github.com/vladleesi"
+                    target = WindowTarget._blank
                     +"GitHub"
                 }
             }
@@ -74,14 +50,9 @@ val HomePage = VFC {
                     marginRight = 8.px
                 }
                 a {
-                    css {
-                        color = Color("#FFFFFF")
-                        textDecoration = TextDecoration.blink
-                        hover {
-                            color = Color("#D9D9D9")
-                        }
-                    }
+                    css { buildFooterLinkStyle() }
                     href = "https://www.linkedin.com/in/vladkochetov/"
+                    target = WindowTarget._blank
                     +"LinkedIn"
                 }
             }
@@ -91,15 +62,9 @@ val HomePage = VFC {
                     marginLeft = 8.px
                 }
                 a {
-                    // TODO: Move colors and styles from here
-                    css {
-                        color = Color("#FFFFFF")
-                        textDecoration = TextDecoration.blink
-                        hover {
-                            color = Color("#D9D9D9")
-                        }
-                    }
+                    css { buildFooterLinkStyle() }
                     href = "https://twitter.com/vladleesi"
+                    target = WindowTarget._blank
                     +"Twitter"
                 }
             }
@@ -146,7 +111,9 @@ val HomePage = VFC {
             }
             div {
                 a {
+                    css { buildBodyLinkStyle() }
                     href = "https://github.com/vladleesi/kutilicious"
+                    target = WindowTarget._blank
                     +"Kutilicious"
                 }
             }
@@ -159,7 +126,9 @@ val HomePage = VFC {
             }
             div {
                 a {
+                    css { buildBodyLinkStyle() }
                     href = "https://github.com/vladleesi/braindance-app"
+                    target = WindowTarget._blank
                     +"Braindance"
                 }
             }
@@ -172,7 +141,9 @@ val HomePage = VFC {
             }
             div {
                 a {
+                    css { buildBodyLinkStyle() }
                     href = "https://github.com/vladleesi/yet-another-calculator"
+                    target = WindowTarget._blank
                     +"Yet Another Calculator"
                 }
             }
@@ -185,7 +156,9 @@ val HomePage = VFC {
             }
             div {
                 a {
+                    css { buildBodyLinkStyle() }
                     href = "https://github.com/vladleesi/scanmate"
+                    target = WindowTarget._blank
                     +"Scanmate"
                 }
             }
