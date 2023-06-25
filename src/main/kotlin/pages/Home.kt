@@ -7,6 +7,7 @@ import react.dom.html.ReactHTML.div
 import react.dom.html.ReactHTML.footer
 import react.dom.html.ReactHTML.h1
 import react.dom.html.ReactHTML.h3
+import react.dom.html.ReactHTML.p
 import react.router.Outlet
 import style.buildBodyLinkStyle
 import style.buildFooterContentStyle
@@ -83,7 +84,7 @@ val HomePage = VFC {
             css {
                 marginTop = 16.px
             }
-            h1 {
+            h3 {
                 +"Vladislav Kochetov"
             }
         }
@@ -162,6 +163,28 @@ val HomePage = VFC {
                     +"Scanmate"
                 }
             }
+        }
+    }
+
+    div {
+        css {
+            justifyContent = JustifyContent.center
+            alignItems = AlignItems.center
+            display = Display.flex
+            marginTop = 48.px
+        }
+        p {
+            css {
+                fontSize = 12.px
+            }
+            +"Copyright © 2023 "
+            a {
+                css { buildBodyLinkStyle() }
+                href = ""
+                target = WindowTarget._blank
+                +"vladleesi"
+            }
+            +". All rights reserved."
         }
     }
 
