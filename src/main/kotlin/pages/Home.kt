@@ -125,7 +125,7 @@ val HomePage = VFC {
                 )
                 buildProjectRow(
                     Project(
-                        tags = listOf("Kotlin", "Android", "KMM", "iOS", "SwiftUI"),
+                        tags = listOf("Kotlin", "Android", "Jetpack Compose", "KMM", "iOS", "SwiftUI"),
                         title = "Braindance",
                         description = "Explore games, add favorites, get details, follow release calendar, and read game news. Multiplatform app for Android, iOS, Desktop. Built with KMM & Jetpack Compose.",
                         redirectUrl = "#/braindance",
@@ -211,7 +211,7 @@ private fun ChildrenBuilder.buildProjectRow(project: Project, isMarginNeeded: Bo
             css {
                 display = Display.flex
                 flexDirection = FlexDirection.row
-                fontSize = 10.px
+                fontSize = 12.px
             }
             for (tag in project.tags) {
                 div {
