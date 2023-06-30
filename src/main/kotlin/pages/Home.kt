@@ -4,10 +4,11 @@ import emotion.react.css
 import react.ChildrenBuilder
 import react.VFC
 import react.dom.html.ReactHTML.a
+import react.dom.html.ReactHTML.b
 import react.dom.html.ReactHTML.div
 import react.dom.html.ReactHTML.footer
 import react.dom.html.ReactHTML.h1
-import react.dom.html.ReactHTML.h3
+import react.dom.html.ReactHTML.h2
 import react.dom.html.ReactHTML.p
 import react.router.Outlet
 import style.*
@@ -77,14 +78,8 @@ val HomePage = VFC {
             display = Display.grid
             flexDirection = FlexDirection.column
         }
-        div {
-            css {
-                marginTop = 16.px
-            }
-            h3 {
-                +"Vladislav Kochetov"
-            }
-        }
+
+        // TODO: Remove
         div {
             css {
                 marginTop = 20.px
@@ -93,12 +88,50 @@ val HomePage = VFC {
                 +"The site is under construction.."
             }
         }
+
+        div {
+            css {
+                marginTop = 56.px
+                fontSize = 18.px
+            }
+            +"Hi there! \uD83D\uDC4B"
+        }
+        div {
+            css {
+                fontSize = 18.px
+            }
+            +"My name is "
+            b {
+                +"Vladislav Kochetov"
+            }
+            +" and I'm "
+            b {
+                +"Android Software Engineer"
+            }
+            +"."
+        }
+        div {
+            css {
+                marginTop = 16.px
+            }
+            h2 {
+                +"ABOUT ME"
+            }
+        }
+        div {
+            css {
+                // TODO: Move fontSize to styles
+                fontSize = 14.px
+                maxWidth = 768.px
+            }
+            +"As an experienced Android Developer with over 5 years of expertise, I am dedicated and hardworking in my approach to delivering high-quality mobile applications. My expertise in developing user-friendly, scalable, and secure apps has allowed me to contribute to the success of several projects throughout my career. With a passion for learning and staying up-to-date with the latest technologies, I am committed to continuously improving my skills and providing top-notch solutions for my clients."
+        }
         div {
             css {
                 marginTop = marginSectionTop
             }
-            h1 {
-                +"Projects"
+            h2 {
+                +"PROJECTS"
             }
         }
 
