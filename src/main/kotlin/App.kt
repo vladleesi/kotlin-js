@@ -18,18 +18,23 @@ private val appRouter = createHashRouter(
             errorElement = Error.create()
         },
         jso {
-            path = "/braindance"
-            element = BraindancePage.create()
-            errorElement = Error.create()
-        },
-        jso {
             path = "/kutilicious"
             element = KutiliciousPage.create()
             errorElement = Error.create()
         },
         jso {
+            path = "/braindance"
+            element = BraindancePage.create()
+            errorElement = Error.create()
+        },
+        jso {
             path = "/yet-another-calculator"
             element = YetAnotherCalculatorPage.create()
+            errorElement = Error.create()
+        },
+        jso {
+            path = "/scanmate"
+            element = ScanmatePage.create()
             errorElement = Error.create()
         }
     ),

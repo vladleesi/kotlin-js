@@ -9,7 +9,7 @@ import web.cssom.Display
 import web.cssom.FlexDirection
 import web.cssom.JustifyContent
 
-val YetAnotherCalculatorPage = VFC {
+val ScanmatePage = VFC {
     div {
         css {
             justifyContent = JustifyContent.center
@@ -18,7 +18,7 @@ val YetAnotherCalculatorPage = VFC {
             flexDirection = FlexDirection.column
         }
         h2 {
-            +"The YAC page is under construction.."
+            +"The Scanmate page is under construction.."
         }
     }
 }

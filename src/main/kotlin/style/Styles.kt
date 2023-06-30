@@ -59,3 +59,11 @@ fun PropertiesBuilder.buildBodyLinkStyle() {
         color = hoverOnBlackColor
     }
 }
+
+fun PropertiesBuilder.buildContentLinkStyle() {
+    color = black
+    textDecoration = TextDecoration.blink
+    hover {
+        color = hoverOnBlackColor
+    }
+}

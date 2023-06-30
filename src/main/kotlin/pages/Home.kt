@@ -1,6 +1,7 @@
 package pages
 
 import emotion.react.css
+import react.ChildrenBuilder
 import react.VFC
 import react.dom.html.ReactHTML.a
 import react.dom.html.ReactHTML.div
@@ -9,15 +10,11 @@ import react.dom.html.ReactHTML.h1
 import react.dom.html.ReactHTML.h3
 import react.dom.html.ReactHTML.p
 import react.router.Outlet
-import style.buildBodyLinkStyle
-import style.buildFooterContentStyle
-import style.buildFooterLinkStyle
-import style.buildFooterStyle
+import style.*
 import web.cssom.*
 import web.window.WindowTarget
 
 val HomePage = VFC {
-
     footer {
         css { buildFooterStyle() }
         id = "footer"
@@ -77,7 +74,7 @@ val HomePage = VFC {
         css {
             justifyContent = JustifyContent.center
             alignItems = AlignItems.center
-            display = Display.flex
+            display = Display.grid
             flexDirection = FlexDirection.column
         }
         div {
@@ -100,68 +97,70 @@ val HomePage = VFC {
             css {
                 marginTop = marginSectionTop
             }
-            h3 {
+            h1 {
                 +"Projects"
             }
         }
 
         div {
             css {
-                display = Display.flex
-                flexDirection = FlexDirection.row
-            }
-            div {
-                a {
-                    css { buildBodyLinkStyle() }
-                    href = "https://github.com/vladleesi/kutilicious"
-                    target = WindowTarget._blank
-                    +"Kutilicious"
-                }
+                display = Display.table
+                maxWidth = 768.px
             }
             div {
                 css {
-                    marginLeft = 8.px
-                    marginRight = 8.px
+                    display = Display.flex
+                    flex = Flex.content
+                    flexDirection = FlexDirection.row
                 }
-                +"•"
-            }
-            div {
-                a {
-                    css { buildBodyLinkStyle() }
-                    href = "https://github.com/vladleesi/braindance-app"
-                    target = WindowTarget._blank
-                    +"Braindance"
-                }
-            }
-            div {
-                css {
-                    marginLeft = 8.px
-                    marginRight = 8.px
-                }
-                +"•"
-            }
-            div {
-                a {
-                    css { buildBodyLinkStyle() }
-                    href = "https://github.com/vladleesi/yet-another-calculator"
-                    target = WindowTarget._blank
-                    +"Yet Another Calculator"
-                }
+                buildProjectRow(
+                    project = Project(
+                        tags = listOf("Kotlin", "Android"),
+                        title = "Kutilicious",
+                        description = "Lightweight library with a set of small Kotlin and Android extensions for a better development experience.",
+                        redirectUrl = "#/kutilicious",
+                        githubUrl = "https://github.com/vladleesi/kutilicious"
+                    ),
+                    isMarginNeeded = false
+                )
+                buildProjectRow(
+                    Project(
+                        tags = listOf("Kotlin", "Android", "KMM", "iOS", "SwiftUI"),
+                        title = "Braindance",
+                        description = "Explore games, add favorites, get details, follow release calendar, and read game news. Multiplatform app for Android, iOS, Desktop. Built with KMM & Jetpack Compose.",
+                        redirectUrl = "#/braindance",
+                        githubUrl = "https://github.com/vladleesi/braindance-app"
+                    ),
+                    isMarginNeeded = true
+                )
             }
             div {
                 css {
-                    marginLeft = 8.px
-                    marginRight = 8.px
+                    display = Display.flex
+                    flex = Flex.content
+                    flexDirection = FlexDirection.row
+                    marginTop = 8.px
                 }
-                +"•"
-            }
-            div {
-                a {
-                    css { buildBodyLinkStyle() }
-                    href = "https://github.com/vladleesi/scanmate"
-                    target = WindowTarget._blank
-                    +"Scanmate"
-                }
+                buildProjectRow(
+                    project = Project(
+                        tags = listOf("Kotlin", "Compose Multiplatform", "Android", "iOS"),
+                        title = "Yet Another Calculator (YAC)",
+                        description = "Behold, here it is – yet another calculator! This marvel of innovation will calculate stuff, just like countless others before it. Built for Android and iOS using Compose Multiplatform.",
+                        redirectUrl = "#/yet-another-calculator",
+                        githubUrl = "https://github.com/vladleesi/yet-another-calculator"
+                    ),
+                    isMarginNeeded = false
+                )
+                buildProjectRow(
+                    Project(
+                        tags = listOf("Kotlin", "Android"),
+                        title = "Scanmate",
+                        description = "",
+                        redirectUrl = "#/scanmate",
+                        githubUrl = "https://github.com/vladleesi/scanmate"
+                    ),
+                    isMarginNeeded = true
+                )
             }
         }
     }
@@ -190,3 +189,106 @@ val HomePage = VFC {
 
     Outlet()
 }
+
+private fun ChildrenBuilder.buildProjectRow(project: Project, isMarginNeeded: Boolean) {
+    div {
+        css {
+            backgroundColor = sectionBackgroundColor
+
+            padding = 16.px
+
+            val radius = 8.px
+            borderBottomLeftRadius = radius
+            borderBottomRightRadius = radius
+            borderTopLeftRadius = radius
+            borderTopRightRadius = radius
+
+            if (isMarginNeeded) {
+                marginLeft = 8.px
+            }
+        }
+        div {
+            css {
+                display = Display.flex
+                flexDirection = FlexDirection.row
+                fontSize = 10.px
+            }
+            for (tag in project.tags) {
+                div {
+                    css {
+                        backgroundColor = lightGray
+                        marginRight = 2.px
+
+                        val radius = 64.px
+                        borderBottomLeftRadius = radius
+                        borderBottomRightRadius = radius
+                        borderTopLeftRadius = radius
+                        borderTopRightRadius = radius
+                    }
+                    div {
+                        css {
+                            marginLeft = 8.px
+                            marginRight = 8.px
+                            marginTop = 4.px
+                            marginBottom = 4.px
+                        }
+                        +tag
+                    }
+                }
+            }
+        }
+        div {
+            css {
+                fontSize = 16.px
+                marginTop = 16.px
+                fontWeight = FontWeight.bold
+                fontSize = 14.px
+            }
+            +project.title
+        }
+        if (project.description != "") {
+            div {
+                css {
+                    marginTop = 16.px
+                    fontSize = 14.px
+                }
+                +project.description
+            }
+        }
+        div {
+            css {
+                display = Display.flex
+                flexDirection = FlexDirection.row
+                marginTop = 32.px
+                fontSize = 14.px
+                color = gray
+            }
+            a {
+                css { buildContentLinkStyle() }
+                href = project.redirectUrl
+                +"Website"
+            }
+            div {
+                css {
+                    marginLeft = 8.px
+                    marginRight = 8.px
+                }
+                +"•"
+            }
+            a {
+                css { buildContentLinkStyle() }
+                href = project.githubUrl
+                target = WindowTarget._blank
+                +"GitHub"
+            }
+        }
+    }
+}
+
+private data class Project(
+    val tags: List<String>,
+    val title: String,
+    val description: String,
+    val redirectUrl: String,
+    val githubUrl: String
+)
