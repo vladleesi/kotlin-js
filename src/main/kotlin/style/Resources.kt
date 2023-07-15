@@ -5,7 +5,7 @@ import web.dom.document
 
 val fontLink = document.createElement("link").apply {
     setAttribute("rel", "stylesheet")
-    setAttribute("href", "https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap")
+    setAttribute("href", "https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap")
 }
 
 val faviconLink = document.createElement("link").apply {

@@ -8,7 +8,10 @@ val appStyle = document.createElement("style").apply {
     innerHTML = """
         body {
             width: 100%;
-            font-family: 'Quicksand', sans-serif;
+            font-family: 'Manrope', sans-serif;
+            
+            background-color: $backgroundBlack;
+            color: $white;
             
             margin-top: 0px;
             margin-bottom: 0px;
@@ -28,20 +31,12 @@ val appStyle = document.createElement("style").apply {
     """
 }
 
-fun PropertiesBuilder.buildFooterStyle() {
-    backgroundColor = footerBlack
-    margin = 0.px
-    padding = 10.px
+fun PropertiesBuilder.buildFooterStyle(maxWidthValue: MaxWidth) {
     display = Display.flex
-    height = 3.em
-}
-
-fun PropertiesBuilder.buildFooterContentStyle() {
-    flex = Flex.content
-    color = white
-    display = Display.flex
-    justifyContent = JustifyContent.center
     alignItems = AlignItems.center
+    justifyContent = JustifyContent.spaceBetween
+    maxWidth = maxWidthValue
+    marginTop = 32.px
 }
 
 fun PropertiesBuilder.buildFooterLinkStyle() {
@@ -53,17 +48,26 @@ fun PropertiesBuilder.buildFooterLinkStyle() {
 }
 
 fun PropertiesBuilder.buildBodyLinkStyle() {
-    color = black
+    color = white
     textDecoration = TextDecoration.blink
     hover {
-        color = hoverOnBlackColor
+        color = hoverOnWhiteColor
     }
 }
 
 fun PropertiesBuilder.buildContentLinkStyle() {
     color = black
     textDecoration = TextDecoration.blink
+    alignContent = AlignContent.center
     hover {
         color = hoverOnBlackColor
     }
+}
+
+fun PropertiesBuilder.buildContentTextBackgroundStyle() {
+    backgroundColor = white
+    paddingLeft = 6.px
+    paddingRight = 6.px
+    paddingBottom = 4.px
+    color = backgroundBlack
 }

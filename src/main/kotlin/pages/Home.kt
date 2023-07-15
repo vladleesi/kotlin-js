@@ -6,139 +6,113 @@ import react.VFC
 import react.dom.html.ReactHTML.a
 import react.dom.html.ReactHTML.b
 import react.dom.html.ReactHTML.div
-import react.dom.html.ReactHTML.footer
-import react.dom.html.ReactHTML.h1
-import react.dom.html.ReactHTML.h2
 import react.dom.html.ReactHTML.p
+import react.dom.html.ReactHTML.span
 import react.router.Outlet
 import style.*
 import web.cssom.*
 import web.window.WindowTarget
 
 val HomePage = VFC {
-    footer {
-        css { buildFooterStyle() }
-        id = "footer"
+    val maxContentWidth = 768.px
 
-        div {
-            css { buildFooterContentStyle() }
-            a {
-                css { buildFooterLinkStyle() }
-                href = "mailto:vladleesi@outlook.com"
-                +"vladleesi@outlook.com"
-            }
-        }
-
-        div {
-            css { buildFooterContentStyle() }
-            div {
-                css {
-                    marginRight = 8.px
-                }
-                a {
-                    css { buildFooterLinkStyle() }
-                    href = "https://github.com/vladleesi"
-                    target = WindowTarget._blank
-                    +"GitHub"
-                }
-            }
-            +"/"
-            div {
-                css {
-                    marginLeft = 8.px
-                    marginRight = 8.px
-                }
-                a {
-                    css { buildFooterLinkStyle() }
-                    href = "https://www.linkedin.com/in/vladkochetov/"
-                    target = WindowTarget._blank
-                    +"LinkedIn"
-                }
-            }
-            +"/"
-            div {
-                css {
-                    marginLeft = 8.px
-                }
-                a {
-                    css { buildFooterLinkStyle() }
-                    href = "https://twitter.com/vladleesi"
-                    target = WindowTarget._blank
-                    +"Twitter"
-                }
-            }
-        }
-    }
-
-    val marginSectionTop = 32.px
     div {
         css {
             justifyContent = JustifyContent.center
             alignItems = AlignItems.center
             display = Display.grid
             flexDirection = FlexDirection.column
-        }
-
-        // TODO: Remove
-        div {
-            css {
-                marginTop = 20.px
-            }
-            h1 {
-                +"The site is under construction.."
-            }
+            backgroundColor = backgroundBlack
         }
 
         div {
+            css { buildFooterStyle(maxWidthValue = maxContentWidth) }
+
+            span {
+                a {
+                    css { buildFooterLinkStyle() }
+                    href = "mailto:hello@vladleesi.dev"
+                    +"hello@vladleesi.dev"
+                }
+            }
+
+            span {
+                span {
+                    css {
+                        marginRight = 8.px
+                    }
+                    a {
+                        css { buildFooterLinkStyle() }
+                        href = "https://www.linkedin.com/in/vladkochetov/"
+                        target = WindowTarget._blank
+                        +"linkedin"
+                    }
+                }
+                +"/"
+                span {
+                    css {
+                        marginLeft = 8.px
+                        marginRight = 8.px
+                    }
+                    a {
+                        css { buildFooterLinkStyle() }
+                        href = "https://github.com/vladleesi"
+                        target = WindowTarget._blank
+                        +"github"
+                    }
+                }
+                +"/"
+                span {
+                    css {
+                        marginLeft = 8.px
+                    }
+                    a {
+                        css { buildFooterLinkStyle() }
+                        href = "https://twitter.com/vladleesi"
+                        target = WindowTarget._blank
+                        +"twitter"
+                    }
+                }
+            }
+        }
+
+        div {
             css {
-                marginTop = 56.px
-                fontSize = 18.px
+                marginTop = 72.px
+                fontSize = 36.px
             }
             +"Hi there! \uD83D\uDC4B"
         }
         div {
             css {
-                fontSize = 18.px
+                fontSize = 36.px
+                maxWidth = maxContentWidth
             }
-            +"My name is "
-            b {
-                +"Vladislav Kochetov"
+            +"I'm "
+            span {
+                css { buildContentTextBackgroundStyle() }
+                +"developing Android applications"
             }
-            +" and I'm "
-            b {
-                +"Android Software Engineer"
+            +" and exploring other interesting little things. My name is Vladislav Kochetov, or just "
+            span {
+                css { buildContentTextBackgroundStyle() }
+                +"@vladleesi"
             }
             +"."
         }
         div {
             css {
-                marginTop = 16.px
+                marginTop = 64.px
+                fontSize = 36.px
             }
-            h2 {
-                +"ABOUT ME"
-            }
-        }
-        div {
-            css {
-                // TODO: Move fontSize to styles
-                fontSize = 14.px
-                maxWidth = 768.px
-            }
-            +"As an experienced Android Developer with over 5 years of expertise, I am dedicated and hardworking in my approach to delivering high-quality mobile applications. My expertise in developing user-friendly, scalable, and secure apps has allowed me to contribute to the success of several projects throughout my career. With a passion for learning and staying up-to-date with the latest technologies, I am committed to continuously improving my skills and providing top-notch solutions for my clients."
-        }
-        div {
-            css {
-                marginTop = marginSectionTop
-            }
-            h2 {
-                +"PROJECTS"
-            }
+            +"My pet projects"
         }
 
         div {
             css {
                 display = Display.table
-                maxWidth = 768.px
+                maxWidth = maxContentWidth
+                marginTop = 24.px
             }
             div {
                 css {
@@ -188,7 +162,7 @@ val HomePage = VFC {
                     Project(
                         tags = listOf("Kotlin", "Android"),
                         title = "Scanmate",
-                        description = "",
+                        description = "Simple QR-Code scanner with haptic and sound feedback.",
                         redirectUrl = "#/scanmate",
                         githubUrl = "https://github.com/vladleesi/scanmate"
                     ),
@@ -226,15 +200,8 @@ val HomePage = VFC {
 private fun ChildrenBuilder.buildProjectRow(project: Project, isMarginNeeded: Boolean) {
     div {
         css {
-            backgroundColor = sectionBackgroundColor
-
-            padding = 16.px
-
-            val radius = 8.px
-            borderBottomLeftRadius = radius
-            borderBottomRightRadius = radius
-            borderTopLeftRadius = radius
-            borderTopRightRadius = radius
+            backgroundColor = white
+            padding = 12.px
 
             if (isMarginNeeded) {
                 marginLeft = 8.px
@@ -249,14 +216,8 @@ private fun ChildrenBuilder.buildProjectRow(project: Project, isMarginNeeded: Bo
             for (tag in project.tags) {
                 div {
                     css {
-                        backgroundColor = lightGray
+                        backgroundColor = backgroundBlack
                         marginRight = 2.px
-
-                        val radius = 64.px
-                        borderBottomLeftRadius = radius
-                        borderBottomRightRadius = radius
-                        borderTopLeftRadius = radius
-                        borderTopRightRadius = radius
                     }
                     div {
                         css {
@@ -272,18 +233,25 @@ private fun ChildrenBuilder.buildProjectRow(project: Project, isMarginNeeded: Bo
         }
         div {
             css {
-                fontSize = 16.px
+                fontSize = 18.px
                 marginTop = 16.px
                 fontWeight = FontWeight.bold
-                fontSize = 14.px
+                color = backgroundBlack
             }
-            +project.title
+            a {
+                css { buildContentLinkStyle() }
+                href = project.redirectUrl
+                b {
+                    +project.title
+                }
+            }
         }
         if (project.description != "") {
             div {
                 css {
                     marginTop = 16.px
                     fontSize = 14.px
+                    color = backgroundBlack
                 }
                 +project.description
             }
@@ -292,27 +260,17 @@ private fun ChildrenBuilder.buildProjectRow(project: Project, isMarginNeeded: Bo
             css {
                 display = Display.flex
                 flexDirection = FlexDirection.row
-                marginTop = 32.px
-                fontSize = 14.px
+                marginTop = 16.px
+                fontSize = 12.px
                 color = gray
-            }
-            a {
-                css { buildContentLinkStyle() }
-                href = project.redirectUrl
-                +"Website"
-            }
-            div {
-                css {
-                    marginLeft = 8.px
-                    marginRight = 8.px
-                }
-                +"•"
             }
             a {
                 css { buildContentLinkStyle() }
                 href = project.githubUrl
                 target = WindowTarget._blank
-                +"GitHub"
+                b {
+                    +"github"
+                }
             }
         }
     }
