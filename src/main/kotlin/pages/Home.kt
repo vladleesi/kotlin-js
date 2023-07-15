@@ -6,6 +6,7 @@ import react.VFC
 import react.dom.html.ReactHTML.a
 import react.dom.html.ReactHTML.b
 import react.dom.html.ReactHTML.div
+import react.dom.html.ReactHTML.img
 import react.dom.html.ReactHTML.p
 import react.dom.html.ReactHTML.span
 import react.router.Outlet
@@ -32,6 +33,15 @@ val HomePage = VFC {
                 a {
                     css { buildFooterLinkStyle() }
                     href = "mailto:hello@vladleesi.dev"
+
+                    img {
+                        css {
+                            height = 18.px
+                            verticalAlign = VerticalAlign.middle
+                            marginRight = 6.px
+                        }
+                        src = "./email.svg"
+                    }
                     +"hello@vladleesi.dev"
                 }
             }
@@ -211,7 +221,7 @@ private fun ChildrenBuilder.buildProjectRow(project: Project, isMarginNeeded: Bo
             css {
                 display = Display.flex
                 flexDirection = FlexDirection.row
-                fontSize = 12.px
+                fontSize = 14.px
             }
             for (tag in project.tags) {
                 div {
@@ -233,7 +243,7 @@ private fun ChildrenBuilder.buildProjectRow(project: Project, isMarginNeeded: Bo
         }
         div {
             css {
-                fontSize = 18.px
+                fontSize = 20.px
                 marginTop = 16.px
                 fontWeight = FontWeight.bold
                 color = backgroundBlack
@@ -250,7 +260,7 @@ private fun ChildrenBuilder.buildProjectRow(project: Project, isMarginNeeded: Bo
             div {
                 css {
                     marginTop = 16.px
-                    fontSize = 14.px
+                    fontSize = 16.px
                     color = backgroundBlack
                 }
                 +project.description
@@ -261,7 +271,7 @@ private fun ChildrenBuilder.buildProjectRow(project: Project, isMarginNeeded: Bo
                 display = Display.flex
                 flexDirection = FlexDirection.row
                 marginTop = 16.px
-                fontSize = 12.px
+                fontSize = 14.px
                 color = gray
             }
             a {
