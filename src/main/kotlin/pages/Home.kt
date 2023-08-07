@@ -53,6 +53,18 @@ val HomePage = VFC {
                     }
                     a {
                         css { buildFooterLinkStyle() }
+                        href = "https://dev.to/vladleesi"
+                        target = WindowTarget._blank
+                        +"dev.to"
+                    }
+                }
+                +"/"
+                span {
+                    css {
+                        marginRight = 8.px
+                    }
+                    a {
+                        css { buildFooterLinkStyle() }
                         href = "https://www.linkedin.com/in/vladkochetov/"
                         target = WindowTarget._blank
                         +"linkedin"
