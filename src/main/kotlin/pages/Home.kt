@@ -61,18 +61,6 @@ val HomePage = VFC {
                 +"/"
                 span {
                     css {
-                        marginRight = 8.px
-                    }
-                    a {
-                        css { buildFooterLinkStyle() }
-                        href = "https://www.linkedin.com/in/vladkochetov/"
-                        target = WindowTarget._blank
-                        +"linkedin"
-                    }
-                }
-                +"/"
-                span {
-                    css {
                         marginLeft = 8.px
                         marginRight = 8.px
                     }
@@ -87,12 +75,25 @@ val HomePage = VFC {
                 span {
                     css {
                         marginLeft = 8.px
+                        marginRight = 8.px
                     }
                     a {
                         css { buildFooterLinkStyle() }
                         href = "https://twitter.com/vladleesi"
                         target = WindowTarget._blank
                         +"twitter"
+                    }
+                }
+                +"/"
+                span {
+                    css {
+                        marginLeft = 8.px
+                    }
+                    a {
+                        css { buildFooterLinkStyle() }
+                        href = "https://www.linkedin.com/in/vladkochetov/"
+                        target = WindowTarget._blank
+                        +"linkedin"
                     }
                 }
             }
@@ -117,7 +118,10 @@ val HomePage = VFC {
             }
             +" and exploring other interesting little things. My name is Vladislav Kochetov, or just "
             span {
-                css { buildContentTextBackgroundStyle() }
+                css {
+//                    buildContentTextBackgroundStyle()
+                    color = accent
+                }
                 +"@vladleesi"
             }
             +"."
@@ -150,7 +154,7 @@ val HomePage = VFC {
                         redirectUrl = "#/kutilicious",
                         githubUrl = "https://github.com/vladleesi/kutilicious"
                     ),
-                    isMarginNeeded = false
+                    isMarginLeftNeeded = false
                 )
                 buildProjectRow(
                     Project(
@@ -160,7 +164,32 @@ val HomePage = VFC {
                         redirectUrl = "#/braindance",
                         githubUrl = "https://github.com/vladleesi/braindance-app"
                     ),
-                    isMarginNeeded = true
+                    isMarginLeftNeeded = true
+                )
+            }
+            div {
+                css {
+                    display = Display.flex
+                    flex = Flex.content
+                    flexDirection = FlexDirection.row
+                    marginTop = 8.px
+                }
+                buildProjectRow(
+                    Project(
+                        tags = listOf(
+                            "Kotlin",
+                            "Android",
+                            "iOS",
+                            "Desktop",
+                            "Compose Multiplatform",
+                            "Kotlin Multiplatform"
+                        ),
+                        title = "Factastic",
+                        description = "Useless facts every day! Here's an example of a multiplatform app with shared UI and network logic built with Kotlin Multiplatform and Compose Multiplatform for Android, iOS and Desktop.",
+                        redirectUrl = "#/factastic",
+                        githubUrl = "https://github.com/vladleesi/factastic"
+                    ),
+                    isMarginLeftNeeded = false
                 )
             }
             div {
@@ -178,7 +207,7 @@ val HomePage = VFC {
                         redirectUrl = "#/yet-another-calculator",
                         githubUrl = "https://github.com/vladleesi/yet-another-calculator"
                     ),
-                    isMarginNeeded = false
+                    isMarginLeftNeeded = false
                 )
                 buildProjectRow(
                     Project(
@@ -188,7 +217,7 @@ val HomePage = VFC {
                         redirectUrl = "#/scanmate",
                         githubUrl = "https://github.com/vladleesi/scanmate"
                     ),
-                    isMarginNeeded = true
+                    isMarginLeftNeeded = true
                 )
             }
         }
@@ -219,13 +248,13 @@ val HomePage = VFC {
     Outlet()
 }
 
-private fun ChildrenBuilder.buildProjectRow(project: Project, isMarginNeeded: Boolean) {
+private fun ChildrenBuilder.buildProjectRow(project: Project, isMarginLeftNeeded: Boolean) {
     div {
         css {
             backgroundColor = white
             padding = 12.px
 
-            if (isMarginNeeded) {
+            if (isMarginLeftNeeded) {
                 marginLeft = 8.px
             }
         }
@@ -287,12 +316,13 @@ private fun ChildrenBuilder.buildProjectRow(project: Project, isMarginNeeded: Bo
                 color = gray
             }
             a {
-                css { buildContentLinkStyle() }
+                css {
+                    buildContentLinkStyle()
+                    color = lightGray
+                }
                 href = project.githubUrl
                 target = WindowTarget._blank
-                b {
-                    +"github"
-                }
+                +"GitHub"
             }
         }
     }

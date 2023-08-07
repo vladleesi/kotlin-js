@@ -33,6 +33,11 @@ private val appRouter = createHashRouter(
             errorElement = Error.create()
         },
         jso {
+            path = "/factastic"
+            element = FactasticPage.create()
+            errorElement = Error.create()
+        },
+        jso {
             path = "/scanmate"
             element = ScanmatePage.create()
             errorElement = Error.create()
