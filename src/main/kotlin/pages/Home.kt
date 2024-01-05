@@ -234,6 +234,36 @@ val HomePage = VFC {
             css {
                 fontSize = 12.px
             }
+            +"Built on "
+            a {
+                css { buildBodyLinkStyle() }
+                href = "https://kotlinlang.org/docs/js-overview.html"
+                target = WindowTarget._blank
+                +"Kotlin/JS"
+            }
+            +". Source code on "
+            a {
+                css { buildBodyLinkStyle() }
+                href = "https://github.com/vladleesi/vladleesi.github.io"
+                target = WindowTarget._blank
+                +"GitHub"
+            }
+            +"."
+        }
+    }
+
+    div {
+        css {
+            justifyContent = JustifyContent.center
+            alignItems = AlignItems.center
+            display = Display.flex
+            marginBottom = 16.px
+        }
+        p {
+            css {
+                fontSize = 12.px
+                marginTop = 4.px
+            }
             +"Copyright © 2023 "
             a {
                 css { buildBodyLinkStyle() }
