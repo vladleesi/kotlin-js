@@ -66,8 +66,7 @@ fun PropertiesBuilder.buildContentLinkStyle() {
 
 fun PropertiesBuilder.buildContentTextBackgroundStyle() {
     backgroundColor = accent
-    paddingLeft = 6.px
-    paddingRight = 6.px
-    paddingBottom = 4.px
+    paddingLeft = 4.px
+    paddingRight = 4.px
     color = backgroundBlack
 }

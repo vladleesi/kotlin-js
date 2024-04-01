@@ -104,6 +104,14 @@ val HomePage = VFC {
                 marginTop = 72.px
                 fontSize = 36.px
             }
+            +"Site Under Construction"
+        }
+
+        div {
+            css {
+                marginTop = 72.px
+                fontSize = 36.px
+            }
             +"Hi there! \uD83D\uDC4B"
         }
         div {
@@ -131,7 +139,7 @@ val HomePage = VFC {
                 marginTop = 64.px
                 fontSize = 36.px
             }
-            +"My pet projects"
+            +"Projects"
         }
 
         div {
@@ -241,7 +249,7 @@ val HomePage = VFC {
                 target = WindowTarget._blank
                 +"Kotlin/JS"
             }
-            +". Source code on "
+            +", source code on "
             a {
                 css { buildBodyLinkStyle() }
                 href = "https://github.com/vladleesi/vladleesi.github.io"
@@ -249,29 +257,6 @@ val HomePage = VFC {
                 +"GitHub"
             }
             +"."
-        }
-    }
-
-    div {
-        css {
-            justifyContent = JustifyContent.center
-            alignItems = AlignItems.center
-            display = Display.flex
-            marginBottom = 16.px
-        }
-        p {
-            css {
-                fontSize = 12.px
-                marginTop = 4.px
-            }
-            +"Copyright © 2023 "
-            a {
-                css { buildBodyLinkStyle() }
-                href = ""
-                target = WindowTarget._blank
-                +"vladleesi"
-            }
-            +". All rights reserved."
         }
     }
 
