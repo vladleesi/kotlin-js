@@ -4,12 +4,12 @@ import emotion.react.css
 import react.ChildrenBuilder
 import react.FC
 import react.dom.html.ReactHTML.a
-import react.dom.html.ReactHTML.b
 import react.dom.html.ReactHTML.div
 import react.dom.html.ReactHTML.img
 import react.dom.html.ReactHTML.p
 import react.dom.html.ReactHTML.span
 import react.router.Outlet
+import react.router.dom.Link
 import style.*
 import web.cssom.*
 import web.window.WindowTarget
@@ -112,7 +112,7 @@ val HomePage = FC {
                 marginTop = 72.px
                 fontSize = 36.px
             }
-            +"Hi there! \uD83D\uDC4B"
+            +"Hi there!"
         }
         div {
             css {
@@ -159,7 +159,7 @@ val HomePage = FC {
                         tags = listOf("Kotlin", "Android"),
                         title = "Kutilicious",
                         description = "Lightweight library with a set of small Kotlin and Android extensions for a better development experience.",
-                        redirectUrl = "#/kutilicious",
+                        redirectUrl = "/kutilicious",
                         githubUrl = "https://github.com/vladleesi/kutilicious"
                     ),
                     isMarginLeftNeeded = false
@@ -169,7 +169,7 @@ val HomePage = FC {
                         tags = listOf("Kotlin", "Android", "Jetpack Compose", "KMM", "iOS", "SwiftUI"),
                         title = "Braindance",
                         description = "Explore games, add favorites, get details, follow release calendar, and read game news. Multiplatform app for Android, iOS, Desktop. Built with KMM & Jetpack Compose.",
-                        redirectUrl = "#/braindance",
+                        redirectUrl = "/braindance",
                         githubUrl = "https://github.com/vladleesi/braindance-app"
                     ),
                     isMarginLeftNeeded = true
@@ -194,7 +194,7 @@ val HomePage = FC {
                         ),
                         title = "Factastic",
                         description = "Useless facts every day! Here's an example of a multiplatform app with shared UI and network logic built with Kotlin Multiplatform and Compose Multiplatform for Android, iOS and Desktop.",
-                        redirectUrl = "#/factastic",
+                        redirectUrl = "/factastic",
                         githubUrl = "https://github.com/vladleesi/factastic"
                     ),
                     isMarginLeftNeeded = false
@@ -212,7 +212,7 @@ val HomePage = FC {
                         tags = listOf("Kotlin", "Compose Multiplatform", "Android", "iOS"),
                         title = "Yet Another Calculator (YAC)",
                         description = "Behold, here it is – yet another calculator! This marvel of innovation will calculate stuff, just like countless others before it. Built for Android and iOS using Compose Multiplatform.",
-                        redirectUrl = "#/yet-another-calculator",
+                        redirectUrl = "/yet-another-calculator",
                         githubUrl = "https://github.com/vladleesi/yet-another-calculator"
                     ),
                     isMarginLeftNeeded = false
@@ -222,7 +222,7 @@ val HomePage = FC {
                         tags = listOf("Kotlin", "Android"),
                         title = "Scanmate",
                         description = "Simple QR-Code scanner with haptic and sound feedback.",
-                        redirectUrl = "#/scanmate",
+                        redirectUrl = "/scanmate",
                         githubUrl = "https://github.com/vladleesi/scanmate"
                     ),
                     isMarginLeftNeeded = true
@@ -284,6 +284,7 @@ private fun ChildrenBuilder.buildProjectRow(project: Project, isMarginLeftNeeded
                     css {
                         backgroundColor = backgroundBlack
                         marginRight = 2.px
+                        whiteSpace = WhiteSpace.nowrap
                     }
                     div {
                         css {
@@ -305,9 +306,9 @@ private fun ChildrenBuilder.buildProjectRow(project: Project, isMarginLeftNeeded
                 color = backgroundBlack
             }
             a {
-                css { buildContentLinkStyle() }
-                href = project.redirectUrl
-                b {
+                Link {
+                    css { buildContentLinkStyle() }
+                    to = project.redirectUrl
                     +project.title
                 }
             }

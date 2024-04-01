@@ -4,6 +4,7 @@ import emotion.react.css
 import react.FC
 import react.dom.html.ReactHTML.div
 import react.dom.html.ReactHTML.h2
+import react.router.Outlet
 import web.cssom.AlignItems
 import web.cssom.Display
 import web.cssom.FlexDirection
@@ -22,4 +23,5 @@ val BraindancePage = FC {
             +"The Braindance page is under construction.."
         }
     }
+    Outlet()
 }

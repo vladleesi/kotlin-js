@@ -4,13 +4,13 @@ import react.FC
 import react.create
 import react.dom.client.createRoot
 import react.router.dom.RouterProvider
-import react.router.dom.createHashRouter
+import react.router.dom.createBrowserRouter
 import style.appStyle
 import style.faviconLink
 import style.fontLink
 import web.dom.document
 
-private val appRouter = createHashRouter(
+private val appRouter = createBrowserRouter(
     routes = arrayOf(
         jso {
             path = "/"

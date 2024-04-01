@@ -8,7 +8,7 @@ val appStyle = document.createElement("style").apply {
     innerHTML = """
         body {
             width: 100%;
-            font-family: 'Manrope', sans-serif;
+            font-family: 'Roboto Slab', sans-serif;
             
             background-color: $backgroundBlack;
             color: $white;
@@ -66,7 +66,7 @@ fun PropertiesBuilder.buildContentLinkStyle() {
 
 fun PropertiesBuilder.buildContentTextBackgroundStyle() {
     backgroundColor = accent
-    paddingLeft = 4.px
-    paddingRight = 4.px
+    paddingLeft = 2.px
+    paddingRight = 2.px
     color = backgroundBlack
 }
