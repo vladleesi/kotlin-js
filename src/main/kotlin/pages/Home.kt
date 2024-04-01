@@ -2,7 +2,7 @@ package pages
 
 import emotion.react.css
 import react.ChildrenBuilder
-import react.VFC
+import react.FC
 import react.dom.html.ReactHTML.a
 import react.dom.html.ReactHTML.b
 import react.dom.html.ReactHTML.div
@@ -14,7 +14,7 @@ import style.*
 import web.cssom.*
 import web.window.WindowTarget
 
-val HomePage = VFC {
+val HomePage = FC {
     val maxContentWidth = 768.px
 
     div {

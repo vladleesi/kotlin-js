@@ -1,9 +1,9 @@
 package pages
 
-import react.VFC
+import react.FC
 import react.dom.html.ReactHTML
 
-val Error = VFC {
+val Error = FC {
     ReactHTML.h1 {
         +"Unknown error"
     }

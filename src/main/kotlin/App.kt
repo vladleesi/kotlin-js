@@ -1,9 +1,9 @@
-import js.core.jso
+import js.objects.jso
 import pages.*
-import react.VFC
+import react.FC
 import react.create
 import react.dom.client.createRoot
-import react.router.RouterProvider
+import react.router.dom.RouterProvider
 import react.router.dom.createHashRouter
 import style.appStyle
 import style.faviconLink
@@ -42,10 +42,10 @@ private val appRouter = createHashRouter(
             element = ScanmatePage.create()
             errorElement = Error.create()
         }
-    ),
+    )
 )
 
-private val App = VFC {
+private val App = FC {
     RouterProvider {
         router = appRouter
     }
@@ -58,7 +58,7 @@ fun main() {
         appendChild(appStyle)
     }
 
-    val root = document.createElement("div")
+    val root = document.createElement("root")
         .also(document.body::appendChild)
 
     createRoot(root)

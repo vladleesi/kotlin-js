@@ -1,8 +1,8 @@
 plugins {
-    kotlin("js") version "1.8.21"
+    kotlin("js") version "1.9.23"
 }
 
-group = "io.github.vladleesi"
+group = "dev.vladleesi"
 version = "1.0-SNAPSHOT"
 
 repositories {
@@ -11,11 +11,11 @@ repositories {
 
 dependencies {
     // React, React DOM + Wrappers
-    implementation("org.jetbrains.kotlin-wrappers:kotlin-react:18.2.0-pre.557")
-    implementation("org.jetbrains.kotlin-wrappers:kotlin-react-dom:18.2.0-pre.557")
-    implementation("org.jetbrains.kotlin-wrappers:kotlin-emotion:11.11.0-pre.557")
-    implementation("org.jetbrains.kotlin-wrappers:kotlin-react-router:6.11.2-pre.557")
-    implementation("org.jetbrains.kotlin-wrappers:kotlin-react-router-dom:6.11.2-pre.557")
+    implementation("org.jetbrains.kotlin-wrappers:kotlin-react:18.2.0-pre.722")
+    implementation("org.jetbrains.kotlin-wrappers:kotlin-react-dom:18.2.0-pre.722")
+    implementation("org.jetbrains.kotlin-wrappers:kotlin-emotion:11.11.4-pre.722")
+    implementation("org.jetbrains.kotlin-wrappers:kotlin-react-router:6.22.1-pre.722")
+    implementation("org.jetbrains.kotlin-wrappers:kotlin-react-router-dom:6.22.1-pre.722")
 
     // Test
     testImplementation(kotlin("test"))

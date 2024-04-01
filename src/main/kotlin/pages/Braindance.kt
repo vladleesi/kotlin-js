@@ -1,7 +1,7 @@
 package pages
 
 import emotion.react.css
-import react.VFC
+import react.FC
 import react.dom.html.ReactHTML.div
 import react.dom.html.ReactHTML.h2
 import web.cssom.AlignItems
@@ -10,7 +10,7 @@ import web.cssom.FlexDirection
 import web.cssom.JustifyContent
 
 
-val BraindancePage = VFC {
+val BraindancePage = FC {
     div {
         css {
             justifyContent = JustifyContent.center
