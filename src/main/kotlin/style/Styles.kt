@@ -41,7 +41,9 @@ fun PropertiesBuilder.buildFooterStyle(maxWidthValue: MaxWidth) {
 
 fun PropertiesBuilder.buildFooterLinkStyle() {
     color = white
-    textDecoration = TextDecoration.blink
+    textDecoration = TextDecoration.underline
+    textDecorationColor = accent
+    textDecorationThickness = 1.5.px
     hover {
         color = hoverOnWhiteColor
     }
@@ -49,7 +51,9 @@ fun PropertiesBuilder.buildFooterLinkStyle() {
 
 fun PropertiesBuilder.buildBodyLinkStyle() {
     color = white
-    textDecoration = TextDecoration.blink
+    textDecoration = TextDecoration.underline
+    textDecorationColor = accent
+    textDecorationThickness = 1.5.px
     hover {
         color = hoverOnWhiteColor
     }
@@ -57,7 +61,9 @@ fun PropertiesBuilder.buildBodyLinkStyle() {
 
 fun PropertiesBuilder.buildContentLinkStyle() {
     color = black
-    textDecoration = TextDecoration.blink
+    textDecoration = TextDecoration.underline
+    textDecorationColor = accent
+    textDecorationThickness = 4.px
     alignContent = AlignContent.center
     hover {
         color = hoverOnBlackColor

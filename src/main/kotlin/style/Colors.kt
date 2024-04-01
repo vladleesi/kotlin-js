@@ -5,7 +5,6 @@ import web.cssom.Color
 val white = Color("#FFFFFF")
 val black = Color("#000000")
 val gray = Color("#323232")
-val lightGray = Color("#A2A2A2")
 
 val accent = Color("#FFC300")
 
