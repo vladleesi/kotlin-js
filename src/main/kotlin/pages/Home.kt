@@ -15,19 +15,18 @@ import web.cssom.*
 import web.window.WindowTarget
 
 val HomePage = FC {
-    val maxContentWidth = 768.px
-
     div {
         css {
             justifyContent = JustifyContent.center
             alignItems = AlignItems.center
             display = Display.grid
+            textAlign = TextAlign.start
             flexDirection = FlexDirection.column
             backgroundColor = backgroundBlack
         }
 
         div {
-            css { buildFooterStyle(maxWidthValue = maxContentWidth) }
+            css { buildFooterStyle() }
 
             span {
                 a {
@@ -117,7 +116,6 @@ val HomePage = FC {
         div {
             css {
                 fontSize = 36.px
-                maxWidth = maxContentWidth
             }
             +"I'm "
             span {
@@ -145,7 +143,6 @@ val HomePage = FC {
         div {
             css {
                 display = Display.table
-                maxWidth = maxContentWidth
                 marginTop = 24.px
             }
             div {
@@ -231,7 +228,7 @@ val HomePage = FC {
                     Project(
                         tags = listOf("Kotlin", "Android"),
                         title = "Scanmate",
-                        description = "A simple QR code scanner with tactile and audio feedback. You can also save and view previously scanned codes. Currently in development.",
+                        description = "A simple QR code scanner with tactile and audio feedback. You can also save and view previously scanned codes.",
                         redirectUrl = "/scanmate",
                         githubUrl = "https://github.com/vladleesi/scanmate"
                     ),
@@ -250,7 +247,7 @@ val HomePage = FC {
         }
         p {
             css {
-                fontSize = 12.px
+                fontSize = 14.px
             }
             +"Built on "
             a {
@@ -296,7 +293,6 @@ private fun ChildrenBuilder.buildProjectRow(project: Project, isMarginLeftNeeded
                     css {
                         backgroundColor = backgroundBlack
                         marginRight = 2.px
-                        whiteSpace = WhiteSpace.nowrap
                     }
                     div {
                         css {

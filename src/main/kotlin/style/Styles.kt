@@ -1,41 +1,41 @@
 package style
 
 import csstype.PropertiesBuilder
+import kotlinx.css.*
+import kotlinx.css.Color
+import kotlinx.css.Margin
+import kotlinx.css.TextAlign
 import web.cssom.*
+import web.cssom.Display
+import web.cssom.JustifyContent
+import web.cssom.px
 import web.dom.document
 
 val appStyle = document.createElement("style").apply {
-    innerHTML = """
+
+    val styles = CssBuilder().apply {
         body {
-            width: 100%;
-            font-family: 'Roboto Slab', sans-serif;
-            
-            background-color: $backgroundBlack;
-            color: $white;
-            
-            margin-top: 0px;
-            margin-bottom: 0px;
-            margin-right: 0px;
-            margin-left: 0px;
-            
-            /* Styles for mobile screens */
-            @media screen and (max-width: 767px) {
-                
-            }
-        
-            /* Styles for desktop screens */
-            @media screen and (min-width: 768px) {
-                
+            width = LinearDimension("65%")
+            textAlign = TextAlign.center
+            margin = Margin(LinearDimension.auto)
+            fontFamily = "Roboto Slab, sans-serif"
+            // TODO: Refactor colors
+            backgroundColor = Color(backgroundBlack.toString())
+            color = Color(white.toString())
+
+            media("screen and (max-width: 767px)") {
+                // mobile styles
             }
         }
-    """
+    }
+
+    innerHTML = styles.toString()
 }
 
-fun PropertiesBuilder.buildFooterStyle(maxWidthValue: MaxWidth) {
+fun PropertiesBuilder.buildFooterStyle() {
     display = Display.flex
     alignItems = AlignItems.center
     justifyContent = JustifyContent.spaceBetween
-    maxWidth = maxWidthValue
     marginTop = 32.px
 }
 

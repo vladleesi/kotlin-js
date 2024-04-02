@@ -10,12 +10,12 @@ repositories {
 }
 
 dependencies {
-    // React, React DOM + Wrappers
-    implementation("org.jetbrains.kotlin-wrappers:kotlin-react:18.2.0-pre.722")
-    implementation("org.jetbrains.kotlin-wrappers:kotlin-react-dom:18.2.0-pre.722")
-    implementation("org.jetbrains.kotlin-wrappers:kotlin-emotion:11.11.4-pre.722")
-    implementation("org.jetbrains.kotlin-wrappers:kotlin-react-router:6.22.1-pre.722")
-    implementation("org.jetbrains.kotlin-wrappers:kotlin-react-router-dom:6.22.1-pre.722")
+    implementation(libs.kotlin.wrappers.react)
+    implementation(libs.kotlin.wrappers.react.dom)
+    implementation(libs.kotlin.wrappers.react.router)
+    implementation(libs.kotlin.wrappers.react.router.dom)
+    implementation(libs.kotlin.wrappers.emotion)
+    implementation(libs.kotlin.wrappers.css)
 
     // Test
     testImplementation(kotlin("test"))

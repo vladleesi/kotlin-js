@@ -1,0 +1,13 @@
+[versions]
+kotlin-react = "18.2.0-pre.722"
+kotlin-react-router = "6.22.1-pre.722"
+kotlin-emotion = "11.11.4-pre.722"
+kotlin-css = "1.0.0-pre.722"
+
+[libraries]
+kotlin-wrappers-react = { module = "org.jetbrains.kotlin-wrappers:kotlin-react", version.ref = "kotlin-react" }
+kotlin-wrappers-react-dom = { module = "org.jetbrains.kotlin-wrappers:kotlin-react-dom", version.ref = "kotlin-react" }
+kotlin-wrappers-react-router = { module = "org.jetbrains.kotlin-wrappers:kotlin-react-router", version.ref = "kotlin-react-router" }
+kotlin-wrappers-react-router-dom = { module = "org.jetbrains.kotlin-wrappers:kotlin-react-router-dom", version.ref = "kotlin-react-router" }
+kotlin-wrappers-emotion = { module = "org.jetbrains.kotlin-wrappers:kotlin-emotion", version.ref = "kotlin-emotion" }
+kotlin-wrappers-css = { module = "org.jetbrains.kotlin-wrappers:kotlin-css", version.ref = "kotlin-css" }
