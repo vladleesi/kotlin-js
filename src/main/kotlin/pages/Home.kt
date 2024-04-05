@@ -142,7 +142,7 @@ val HomePage = FC {
         projectTable {
             projectRow {
                 buildProjectCell(
-                    Project(
+                    project = Project(
                         tags = listOf("Kotlin", "Android", "Jetpack Compose", "KMM", "iOS", "SwiftUI"),
                         title = "Braindance",
                         description = "Explore games, add favorites, get details, follow release calendar, and read game news. Multiplatform app for Android, iOS, Desktop. Built with KMM & Jetpack Compose.",
@@ -156,7 +156,7 @@ val HomePage = FC {
                         tags = listOf("Kotlin", "Android"),
                         title = "Kutilicious",
                         description = "Lightweight library with a set of small Kotlin and Android extensions for a better development experience.",
-                        redirectUrl = "/kutilicious",
+                        redirectUrl = "https://vladleesi.dev/kutilicious",
                         githubUrl = "https://github.com/vladleesi/kutilicious"
                     ),
                     isMarginLeftNeeded = true
@@ -165,7 +165,7 @@ val HomePage = FC {
 
             projectRow(marginTop = 8.px) {
                 buildProjectCell(
-                    Project(
+                    project = Project(
                         tags = listOf("Kotlin/JS", "React", "HTML", "CSS"),
                         title = "Personal website",
                         description = "Personal website developed in Kotlin/JS. Why? I don't know, but it was fun.",
@@ -175,7 +175,7 @@ val HomePage = FC {
                     isMarginLeftNeeded = false
                 )
                 buildProjectCell(
-                    Project(
+                    project = Project(
                         tags = listOf(
                             "Kotlin", "Android", "iOS", "Desktop", "Compose Multiplatform", "Kotlin Multiplatform"
                         ),
@@ -200,7 +200,7 @@ val HomePage = FC {
                     isMarginLeftNeeded = false
                 )
                 buildProjectCell(
-                    Project(
+                    project = Project(
                         tags = listOf("Kotlin", "Android"),
                         title = "Scanmate",
                         description = "A simple QR code scanner with tactile and audio feedback. You can also save and view previously scanned codes.",
