@@ -3,13 +3,13 @@ package pages
 import emotion.react.css
 import react.ChildrenBuilder
 import react.FC
+import react.dom.html.ReactHTML
 import react.dom.html.ReactHTML.a
 import react.dom.html.ReactHTML.div
 import react.dom.html.ReactHTML.img
 import react.dom.html.ReactHTML.p
 import react.dom.html.ReactHTML.span
 import react.router.Outlet
-import react.router.dom.Link
 import style.*
 import web.cssom.*
 import web.window.WindowTarget
@@ -143,69 +143,63 @@ val HomePage = FC {
             projectRow {
                 buildProjectCell(
                     project = Project(
-                        tags = listOf("Kotlin", "Android", "Jetpack Compose", "KMM", "iOS", "SwiftUI"),
+                        tags = listOf("Kotlin", "Compose Multiplatform", "KMP", "SwiftUI"),
                         title = "Braindance",
                         description = "Explore games, add favorites, get details, follow release calendar, and read game news. Multiplatform app for Android, iOS, Desktop. Built with KMM & Jetpack Compose.",
-                        redirectUrl = null,
-                        githubUrl = "https://github.com/vladleesi/braindance-app"
+                        redirectUrl = "https://github.com/vladleesi/braindance-app"
                     ),
                     isMarginLeftNeeded = false
                 )
                 buildProjectCell(
                     project = Project(
-                        tags = listOf("Kotlin", "Android"),
+                        tags = listOf("Kotlin", "Android SDK"),
                         title = "Kutilicious",
                         description = "Lightweight library with a set of small Kotlin and Android extensions for a better development experience.",
-                        redirectUrl = "https://vladleesi.dev/kutilicious",
-                        githubUrl = "https://github.com/vladleesi/kutilicious"
+                        redirectUrl = "https://github.com/vladleesi/kutilicious"
                     ),
                     isMarginLeftNeeded = true
                 )
             }
 
-            projectRow(marginTop = 8.px) {
+            projectRow(marginTop = 0.5.em) {
                 buildProjectCell(
                     project = Project(
-                        tags = listOf("Kotlin/JS", "React", "HTML", "CSS"),
+                        tags = listOf("Kotlin/JS", "HTML", "CSS", "React"),
                         title = "Personal website",
                         description = "Personal website developed in Kotlin/JS. Why? I don't know, but it was fun.",
-                        redirectUrl = "/",
-                        githubUrl = "https://github.com/vladleesi/vladleesi.github.io"
+                        redirectUrl = "https://github.com/vladleesi/vladleesi.github.io"
                     ),
                     isMarginLeftNeeded = false
                 )
                 buildProjectCell(
                     project = Project(
                         tags = listOf(
-                            "Kotlin", "Android", "iOS", "Desktop", "Compose Multiplatform", "Kotlin Multiplatform"
+                            "Kotlin", "Compose Multiplatform", "KMP"
                         ),
                         title = "Factastic",
                         description = "Useless facts every day! Here's an example of a multiplatform app with shared UI and network logic built with Kotlin Multiplatform and Compose Multiplatform for Android, iOS and Desktop.",
-                        redirectUrl = null,
-                        githubUrl = "https://github.com/vladleesi/factastic"
+                        redirectUrl = "https://github.com/vladleesi/factastic"
                     ),
                     isMarginLeftNeeded = true
                 )
             }
 
-            projectRow(marginTop = 8.px) {
+            projectRow(marginTop = 0.5.em) {
                 buildProjectCell(
                     project = Project(
-                        tags = listOf("Kotlin", "Compose Multiplatform", "Android", "iOS"),
+                        tags = listOf("Kotlin", "Compose Multiplatform"),
                         title = "Yet Another Calculator (YAC)",
                         description = "Behold, here it is – yet another calculator! This marvel of innovation will calculate stuff, just like countless others before it. Built for Android and iOS using Compose Multiplatform.",
-                        redirectUrl = null,
-                        githubUrl = "https://github.com/vladleesi/yet-another-calculator"
+                        redirectUrl = "https://github.com/vladleesi/yet-another-calculator"
                     ),
                     isMarginLeftNeeded = false
                 )
                 buildProjectCell(
                     project = Project(
-                        tags = listOf("Kotlin", "Android"),
+                        tags = listOf("Kotlin", "Android SDK"),
                         title = "Scanmate",
                         description = "A simple QR code scanner with tactile and audio feedback. You can also save and view previously scanned codes.",
-                        redirectUrl = null,
-                        githubUrl = "https://github.com/vladleesi/scanmate"
+                        redirectUrl = "https://github.com/vladleesi/scanmate"
                     ),
                     isMarginLeftNeeded = true
                 )
@@ -248,21 +242,22 @@ val HomePage = FC {
 }
 
 private fun ChildrenBuilder.projectTable(builder: ChildrenBuilder.() -> Unit) {
-    div {
+    ReactHTML.table {
         css {
             display = Display.table
-            marginTop = 24.px
+            width = 100.pct
+            borderCollapse = BorderCollapse.separate
+            borderSpacing = 0.5.em
+            marginTop = 1.5.em
+            tableLayout = TableLayout.fixed
         }
         builder.invoke(this)
     }
 }
 
 private fun ChildrenBuilder.projectRow(marginTop: Margin = 0.px, builder: ChildrenBuilder.() -> Unit) {
-    div {
+    ReactHTML.tr {
         css {
-            this.display = Display.flex
-            this.flex = Flex.content
-            this.flexDirection = FlexDirection.row
             this.marginTop = marginTop
         }
         builder.invoke(this)
@@ -270,33 +265,35 @@ private fun ChildrenBuilder.projectRow(marginTop: Margin = 0.px, builder: Childr
 }
 
 private fun ChildrenBuilder.buildProjectCell(project: Project, isMarginLeftNeeded: Boolean) {
-    div {
+    ReactHTML.td {
         css {
             backgroundColor = white
-            padding = 12.px
+            padding = 1.em
+            display = Display.tableCell
+            verticalAlign = VerticalAlign.top
 
             if (isMarginLeftNeeded) {
-                marginLeft = 8.px
+                marginLeft = 0.5.em
             }
         }
         div {
             css {
                 display = Display.flex
-                flexDirection = FlexDirection.row
-                fontSize = 14.px
+                flexFlow = FlexFlow.row
             }
             for (tag in project.tags) {
                 div {
                     css {
                         backgroundColor = backgroundBlack
-                        marginRight = 2.px
+                        marginRight = 0.125.rem
                     }
                     div {
                         css {
-                            marginLeft = 8.px
-                            marginRight = 8.px
-                            marginTop = 4.px
-                            marginBottom = 4.px
+                            paddingLeft = 0.5.em
+                            paddingRight = 0.5.em
+                            paddingTop = 0.25.em
+                            paddingBottom = 0.25.em
+                            fontSize = 0.9.rem
                         }
                         +tag
                     }
@@ -306,49 +303,25 @@ private fun ChildrenBuilder.buildProjectCell(project: Project, isMarginLeftNeede
         div {
             css {
                 fontSize = 20.px
-                marginTop = 16.px
                 fontWeight = FontWeight.bold
+                marginTop = 1.em
                 color = backgroundBlack
             }
             a {
-                if (project.redirectUrl != null) {
-                    Link {
-                        css { buildContentLinkStyle() }
-                        to = project.redirectUrl
-                        +project.title
-                    }
-                } else {
-                    css {
-                        color = black
-                        alignContent = AlignContent.center
-                    }
-                    +project.title
-                }
+                css { buildContentLinkStyle() }
+                href = project.redirectUrl
+                target = WindowTarget._blank
+                +project.title
             }
         }
         if (project.description != "") {
             div {
                 css {
-                    marginTop = 16.px
-                    fontSize = 16.px
+                    marginTop = 1.em
+                    fontSize = 1.em
                     color = backgroundBlack
                 }
                 +project.description
-            }
-        }
-        div {
-            css {
-                display = Display.flex
-                flexDirection = FlexDirection.row
-                marginTop = 16.px
-                fontSize = 14.px
-                color = gray
-            }
-            a {
-                css { buildContentLinkStyle() }
-                href = project.githubUrl
-                target = WindowTarget._blank
-                +"GitHub"
             }
         }
     }
@@ -358,6 +331,5 @@ private data class Project(
     val tags: List<String>,
     val title: String,
     val description: String,
-    val redirectUrl: String?,
-    val githubUrl: String
+    val redirectUrl: String
 )
