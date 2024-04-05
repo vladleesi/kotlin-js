@@ -125,7 +125,6 @@ val HomePage = FC {
             +" and exploring other interesting little things. My name is Vladislav Kochetov, or just "
             span {
                 css {
-//                    buildContentTextBackgroundStyle()
                     color = accent
                 }
                 +"@vladleesi"
@@ -140,18 +139,9 @@ val HomePage = FC {
             +"Projects"
         }
 
-        div {
-            css {
-                display = Display.table
-                marginTop = 24.px
-            }
-            div {
-                css {
-                    display = Display.flex
-                    flex = Flex.content
-                    flexDirection = FlexDirection.row
-                }
-                buildProjectRow(
+        projectTable {
+            projectRow {
+                buildProjectCell(
                     Project(
                         tags = listOf("Kotlin", "Android", "Jetpack Compose", "KMM", "iOS", "SwiftUI"),
                         title = "Braindance",
@@ -161,7 +151,7 @@ val HomePage = FC {
                     ),
                     isMarginLeftNeeded = false
                 )
-                buildProjectRow(
+                buildProjectCell(
                     project = Project(
                         tags = listOf("Kotlin", "Android"),
                         title = "Kutilicious",
@@ -172,14 +162,9 @@ val HomePage = FC {
                     isMarginLeftNeeded = true
                 )
             }
-            div {
-                css {
-                    display = Display.flex
-                    flex = Flex.content
-                    flexDirection = FlexDirection.row
-                    marginTop = 8.px
-                }
-                buildProjectRow(
+
+            projectRow(marginTop = 8.px) {
+                buildProjectCell(
                     Project(
                         tags = listOf("Kotlin/JS", "React", "HTML", "CSS"),
                         title = "Personal website",
@@ -189,15 +174,10 @@ val HomePage = FC {
                     ),
                     isMarginLeftNeeded = false
                 )
-                buildProjectRow(
+                buildProjectCell(
                     Project(
                         tags = listOf(
-                            "Kotlin",
-                            "Android",
-                            "iOS",
-                            "Desktop",
-                            "Compose Multiplatform",
-                            "Kotlin Multiplatform"
+                            "Kotlin", "Android", "iOS", "Desktop", "Compose Multiplatform", "Kotlin Multiplatform"
                         ),
                         title = "Factastic",
                         description = "Useless facts every day! Here's an example of a multiplatform app with shared UI and network logic built with Kotlin Multiplatform and Compose Multiplatform for Android, iOS and Desktop.",
@@ -207,14 +187,9 @@ val HomePage = FC {
                     isMarginLeftNeeded = true
                 )
             }
-            div {
-                css {
-                    display = Display.flex
-                    flex = Flex.content
-                    flexDirection = FlexDirection.row
-                    marginTop = 8.px
-                }
-                buildProjectRow(
+
+            projectRow(marginTop = 8.px) {
+                buildProjectCell(
                     project = Project(
                         tags = listOf("Kotlin", "Compose Multiplatform", "Android", "iOS"),
                         title = "Yet Another Calculator (YAC)",
@@ -224,7 +199,7 @@ val HomePage = FC {
                     ),
                     isMarginLeftNeeded = false
                 )
-                buildProjectRow(
+                buildProjectCell(
                     Project(
                         tags = listOf("Kotlin", "Android"),
                         title = "Scanmate",
@@ -272,7 +247,29 @@ val HomePage = FC {
     Outlet()
 }
 
-private fun ChildrenBuilder.buildProjectRow(project: Project, isMarginLeftNeeded: Boolean) {
+private fun ChildrenBuilder.projectTable(builder: ChildrenBuilder.() -> Unit) {
+    div {
+        css {
+            display = Display.table
+            marginTop = 24.px
+        }
+        builder.invoke(this)
+    }
+}
+
+private fun ChildrenBuilder.projectRow(marginTop: Margin = 0.px, builder: ChildrenBuilder.() -> Unit) {
+    div {
+        css {
+            this.display = Display.flex
+            this.flex = Flex.content
+            this.flexDirection = FlexDirection.row
+            this.marginTop = marginTop
+        }
+        builder.invoke(this)
+    }
+}
+
+private fun ChildrenBuilder.buildProjectCell(project: Project, isMarginLeftNeeded: Boolean) {
     div {
         css {
             backgroundColor = white
