@@ -146,7 +146,7 @@ val HomePage = FC {
                         tags = listOf("Kotlin", "Android", "Jetpack Compose", "KMM", "iOS", "SwiftUI"),
                         title = "Braindance",
                         description = "Explore games, add favorites, get details, follow release calendar, and read game news. Multiplatform app for Android, iOS, Desktop. Built with KMM & Jetpack Compose.",
-                        redirectUrl = "/braindance",
+                        redirectUrl = null,
                         githubUrl = "https://github.com/vladleesi/braindance-app"
                     ),
                     isMarginLeftNeeded = false
@@ -181,7 +181,7 @@ val HomePage = FC {
                         ),
                         title = "Factastic",
                         description = "Useless facts every day! Here's an example of a multiplatform app with shared UI and network logic built with Kotlin Multiplatform and Compose Multiplatform for Android, iOS and Desktop.",
-                        redirectUrl = "/factastic",
+                        redirectUrl = null,
                         githubUrl = "https://github.com/vladleesi/factastic"
                     ),
                     isMarginLeftNeeded = true
@@ -194,7 +194,7 @@ val HomePage = FC {
                         tags = listOf("Kotlin", "Compose Multiplatform", "Android", "iOS"),
                         title = "Yet Another Calculator (YAC)",
                         description = "Behold, here it is – yet another calculator! This marvel of innovation will calculate stuff, just like countless others before it. Built for Android and iOS using Compose Multiplatform.",
-                        redirectUrl = "/yet-another-calculator",
+                        redirectUrl = null,
                         githubUrl = "https://github.com/vladleesi/yet-another-calculator"
                     ),
                     isMarginLeftNeeded = false
@@ -204,7 +204,7 @@ val HomePage = FC {
                         tags = listOf("Kotlin", "Android"),
                         title = "Scanmate",
                         description = "A simple QR code scanner with tactile and audio feedback. You can also save and view previously scanned codes.",
-                        redirectUrl = "/scanmate",
+                        redirectUrl = null,
                         githubUrl = "https://github.com/vladleesi/scanmate"
                     ),
                     isMarginLeftNeeded = true
@@ -311,9 +311,17 @@ private fun ChildrenBuilder.buildProjectCell(project: Project, isMarginLeftNeede
                 color = backgroundBlack
             }
             a {
-                Link {
-                    css { buildContentLinkStyle() }
-                    to = project.redirectUrl
+                if (project.redirectUrl != null) {
+                    Link {
+                        css { buildContentLinkStyle() }
+                        to = project.redirectUrl
+                        +project.title
+                    }
+                } else {
+                    css {
+                        color = black
+                        alignContent = AlignContent.center
+                    }
                     +project.title
                 }
             }
@@ -350,6 +358,6 @@ private data class Project(
     val tags: List<String>,
     val title: String,
     val description: String,
-    val redirectUrl: String,
+    val redirectUrl: String?,
     val githubUrl: String
 )
