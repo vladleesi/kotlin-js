@@ -161,7 +161,7 @@ val HomePage = FC {
                 )
             }
 
-            projectRow(marginTop = 0.5.em) {
+            projectRow {
                 buildProjectCell(
                     project = Project(
                         tags = listOf("Kotlin/JS", "HTML", "CSS", "React"),
@@ -184,7 +184,7 @@ val HomePage = FC {
                 )
             }
 
-            projectRow(marginTop = 0.5.em) {
+            projectRow {
                 buildProjectCell(
                     project = Project(
                         tags = listOf("Kotlin", "Compose Multiplatform"),
@@ -248,18 +248,16 @@ private fun ChildrenBuilder.projectTable(builder: ChildrenBuilder.() -> Unit) {
             width = 100.pct
             borderCollapse = BorderCollapse.separate
             borderSpacing = 0.5.em
-            marginTop = 1.5.em
+            margin = (-0.5).em
+            marginTop = 1.em
             tableLayout = TableLayout.fixed
         }
         builder.invoke(this)
     }
 }
 
-private fun ChildrenBuilder.projectRow(marginTop: Margin = 0.px, builder: ChildrenBuilder.() -> Unit) {
+private fun ChildrenBuilder.projectRow(builder: ChildrenBuilder.() -> Unit) {
     ReactHTML.tr {
-        css {
-            this.marginTop = marginTop
-        }
         builder.invoke(this)
     }
 }
@@ -268,7 +266,7 @@ private fun ChildrenBuilder.buildProjectCell(project: Project, isMarginLeftNeede
     ReactHTML.td {
         css {
             backgroundColor = white
-            padding = 1.em
+            padding = 0.75.em
             display = Display.tableCell
             verticalAlign = VerticalAlign.top
 
