@@ -1,5 +1,6 @@
 import js.objects.jso
-import pages.*
+import pages.Error
+import pages.HomePage
 import react.FC
 import react.create
 import react.dom.client.createRoot

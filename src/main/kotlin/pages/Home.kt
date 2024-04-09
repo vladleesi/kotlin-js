@@ -364,7 +364,7 @@ private fun ChildrenBuilder.buildProjectCell(project: Project) {
                             paddingRight = 0.5.em
                             paddingTop = 0.25.em
                             paddingBottom = 0.25.em
-                            fontSize = 0.9.rem
+                            fontSize = 14.px
                         }
                         +tag
                     }

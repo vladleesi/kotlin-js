@@ -22,7 +22,7 @@ val appStyle = document.createElement("style").apply {
             backgroundColor = Color(backgroundBlack.toString())
             color = Color(white.toString())
 
-            media("screen and (max-width: 767px)") {
+            media("screen and (max-width: 768px)") {
                 // mobile styles
                 width = LinearDimension("85%")
             }
