@@ -241,9 +241,9 @@ val HomePage = FC {
                         div {
                             a {
                                 css { buildHeaderLinkStyle() }
-                                href = "https://dev.to/vladleesi"
+                                href = "https://github.com/vladleesi"
                                 target = WindowTarget._blank
-                                +"Dev.to"
+                                +"GitHub"
                             }
                         }
                         div {
@@ -252,9 +252,9 @@ val HomePage = FC {
                             }
                             a {
                                 css { buildHeaderLinkStyle() }
-                                href = "https://github.com/vladleesi"
+                                href = "https://dev.to/vladleesi"
                                 target = WindowTarget._blank
-                                +"GitHub"
+                                +"Dev.to"
                             }
                         }
                     }
@@ -262,9 +262,9 @@ val HomePage = FC {
                         div {
                             a {
                                 css { buildHeaderLinkStyle() }
-                                href = "https://twitter.com/vladleesi"
+                                href = "https://www.linkedin.com/in/vladkochetov/"
                                 target = WindowTarget._blank
-                                +"Twitter"
+                                +"LinkedIn"
                             }
                         }
                         div {
@@ -273,9 +273,9 @@ val HomePage = FC {
                             }
                             a {
                                 css { buildHeaderLinkStyle() }
-                                href = "https://www.linkedin.com/in/vladkochetov/"
+                                href = "https://twitter.com/vladleesi"
                                 target = WindowTarget._blank
-                                +"LinkedIn"
+                                +"Twitter"
                             }
                         }
                     }
