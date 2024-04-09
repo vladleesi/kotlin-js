@@ -6,15 +6,69 @@ import react.FC
 import react.dom.html.ReactHTML
 import react.dom.html.ReactHTML.a
 import react.dom.html.ReactHTML.div
+import react.dom.html.ReactHTML.footer
+import react.dom.html.ReactHTML.header
 import react.dom.html.ReactHTML.img
+import react.dom.html.ReactHTML.li
+import react.dom.html.ReactHTML.nav
 import react.dom.html.ReactHTML.p
 import react.dom.html.ReactHTML.span
+import react.dom.html.ReactHTML.ul
 import react.router.Outlet
 import style.*
 import web.cssom.*
+import web.cssom.None.Companion.none
 import web.window.WindowTarget
 
 val HomePage = FC {
+
+    header {
+        css {
+            justifyContent = JustifyContent.spaceBetween
+            alignItems = AlignItems.center
+            display = Display.flex
+            width = 100.pct
+            paddingTop = 1.em
+            fontSize = 20.px
+        }
+        a {
+//            css { buildHeaderLinkStyle() }
+//            href = "/"
+            +"@vladleesi"
+        }
+        nav {
+            ul {
+                css {
+                    display = Display.flex
+                    columnGap = 1.em
+                    listStyleType = none
+                }
+                li {
+
+                    a {
+                        css { buildHeaderLinkStyle() }
+                        href = "#Welcome"
+                        +"Welcome"
+                    }
+                }
+                li {
+                    a {
+                        css { buildHeaderLinkStyle() }
+                        href = "#Projects"
+                        +"Projects"
+                    }
+                }
+                li {
+                    a {
+                        css { buildHeaderLinkStyle() }
+                        href = "#Contact"
+                        +"Contact"
+                    }
+                }
+            }
+        }
+    }
+
     div {
         css {
             justifyContent = JustifyContent.center
@@ -26,89 +80,28 @@ val HomePage = FC {
         }
 
         div {
-            css { buildFooterStyle() }
-
-            span {
-                a {
-                    css { buildFooterLinkStyle() }
-                    href = "mailto:hello@vladleesi.dev"
-
-                    img {
-                        css {
-                            height = 18.px
-                            verticalAlign = VerticalAlign.middle
-                            marginRight = 6.px
-                        }
-                        src = "./email.svg"
-                    }
-                    +"hello@vladleesi.dev"
-                }
-            }
-
-            span {
-                span {
-                    css {
-                        marginRight = 8.px
-                    }
-                    a {
-                        css { buildFooterLinkStyle() }
-                        href = "https://dev.to/vladleesi"
-                        target = WindowTarget._blank
-                        +"dev.to"
-                    }
-                }
-                +"/"
-                span {
-                    css {
-                        marginLeft = 8.px
-                        marginRight = 8.px
-                    }
-                    a {
-                        css { buildFooterLinkStyle() }
-                        href = "https://github.com/vladleesi"
-                        target = WindowTarget._blank
-                        +"github"
-                    }
-                }
-                +"/"
-                span {
-                    css {
-                        marginLeft = 8.px
-                        marginRight = 8.px
-                    }
-                    a {
-                        css { buildFooterLinkStyle() }
-                        href = "https://twitter.com/vladleesi"
-                        target = WindowTarget._blank
-                        +"twitter"
-                    }
-                }
-                +"/"
-                span {
-                    css {
-                        marginLeft = 8.px
-                    }
-                    a {
-                        css { buildFooterLinkStyle() }
-                        href = "https://www.linkedin.com/in/vladkochetov/"
-                        target = WindowTarget._blank
-                        +"linkedin"
-                    }
-                }
-            }
-        }
-
-        div {
             css {
-                marginTop = 72.px
+                marginTop = 40.px
                 fontSize = 36.px
+                textAlign = TextAlign.center
             }
             +"Site Under Construction"
         }
 
+
+        img {
+            css {
+                width = 20.pct
+                marginTop = 3.em
+            }
+            id = "Welcome"
+            src = "https://avatars.githubusercontent.com/vladleesi"
+            alt = "Some handsome guy"
+        }
+
         div {
             css {
-                marginTop = 72.px
+                marginTop = 1.em
                 fontSize = 36.px
             }
             +"Hi there!"
@@ -132,6 +125,7 @@ val HomePage = FC {
             +"."
         }
         div {
+            id = "Projects"
             css {
                 marginTop = 64.px
                 fontSize = 36.px
@@ -147,8 +141,7 @@ val HomePage = FC {
                         title = "Braindance",
                         description = "Explore games, add favorites, get details, follow release calendar, and read game news. Multiplatform app for Android, iOS, Desktop. Built with KMM & Jetpack Compose.",
                         redirectUrl = "https://github.com/vladleesi/braindance-app"
-                    ),
-                    isMarginLeftNeeded = false
+                    )
                 )
                 buildProjectCell(
                     project = Project(
@@ -156,8 +149,7 @@ val HomePage = FC {
                         title = "Kutilicious",
                         description = "Lightweight library with a set of small Kotlin and Android extensions for a better development experience.",
                         redirectUrl = "https://github.com/vladleesi/kutilicious"
-                    ),
-                    isMarginLeftNeeded = true
+                    )
                 )
             }
 
@@ -168,8 +160,7 @@ val HomePage = FC {
                         title = "Personal website",
                         description = "Personal website developed in Kotlin/JS. Why? I don't know, but it was fun.",
                         redirectUrl = "https://github.com/vladleesi/vladleesi.github.io"
-                    ),
-                    isMarginLeftNeeded = false
+                    )
                 )
                 buildProjectCell(
                     project = Project(
@@ -179,8 +170,7 @@ val HomePage = FC {
                         title = "Factastic",
                         description = "Useless facts every day! Here's an example of a multiplatform app with shared UI and network logic built with Kotlin Multiplatform and Compose Multiplatform for Android, iOS and Desktop.",
                         redirectUrl = "https://github.com/vladleesi/factastic"
-                    ),
-                    isMarginLeftNeeded = true
+                    )
                 )
             }
 
@@ -191,8 +181,7 @@ val HomePage = FC {
                         title = "Yet Another Calculator (YAC)",
                         description = "Behold, here it is – yet another calculator! This marvel of innovation will calculate stuff, just like countless others before it. Built for Android and iOS using Compose Multiplatform.",
                         redirectUrl = "https://github.com/vladleesi/yet-another-calculator"
-                    ),
-                    isMarginLeftNeeded = false
+                    )
                 )
                 buildProjectCell(
                     project = Project(
@@ -200,9 +189,97 @@ val HomePage = FC {
                         title = "Scanmate",
                         description = "A simple QR code scanner with tactile and audio feedback. You can also save and view previously scanned codes.",
                         redirectUrl = "https://github.com/vladleesi/scanmate"
-                    ),
-                    isMarginLeftNeeded = true
+                    )
                 )
+            }
+        }
+
+        div {
+            id = "Contact"
+            css {
+                marginTop = 64.px
+                fontSize = 36.px
+            }
+            +"Contact"
+        }
+
+        footer {
+            css {
+                display = Display.flex
+                justifyContent = JustifyContent.spaceBetween
+                marginTop = 2.em
+                marginBottom = 2.em
+            }
+            div {
+                div {
+                    css {
+                        maxWidth = 400.px
+                        marginBottom = 24.px
+                    }
+                    +"If you're interested in discussing job opportunities or have any project ideas, please don't hesitate to email me. I'm keen to hear about your project and see how I can help out."
+                }
+                a {
+                    css {
+                        buildHeaderLinkStyle()
+                        fontSize = 24.px
+                    }
+                    href = "mailto:hello@vladleesi.dev"
+                    +"hello@vladleesi.dev"
+                }
+            }
+
+            div {
+                +"Also you can find me here"
+                div {
+                    css {
+                        display = Display.flex
+                        justifyContent = JustifyContent.spaceBetween
+                        marginTop = 1.em
+                        fontSize = 18.px
+                    }
+                    div {
+                        div {
+                            a {
+                                css { buildHeaderLinkStyle() }
+                                href = "https://dev.to/vladleesi"
+                                target = WindowTarget._blank
+                                +"Dev.to"
+                            }
+                        }
+                        div {
+                            css {
+                                marginTop = 0.5.em
+                            }
+                            a {
+                                css { buildHeaderLinkStyle() }
+                                href = "https://github.com/vladleesi"
+                                target = WindowTarget._blank
+                                +"GitHub"
+                            }
+                        }
+                    }
+                    div {
+                        div {
+                            a {
+                                css { buildHeaderLinkStyle() }
+                                href = "https://twitter.com/vladleesi"
+                                target = WindowTarget._blank
+                                +"Twitter"
+                            }
+                        }
+                        div {
+                            css {
+                                marginTop = 0.5.em
+                            }
+                            a {
+                                css { buildHeaderLinkStyle() }
+                                href = "https://www.linkedin.com/in/vladkochetov/"
+                                target = WindowTarget._blank
+                                +"LinkedIn"
+                            }
+                        }
+                    }
+                }
             }
         }
     }
@@ -212,7 +289,8 @@ val HomePage = FC {
             justifyContent = JustifyContent.center
             alignItems = AlignItems.center
             display = Display.flex
-            marginTop = 48.px
+            marginTop = 3.em
+            marginBottom = 1.em
         }
         p {
             css {
@@ -247,8 +325,7 @@ private fun ChildrenBuilder.projectTable(builder: ChildrenBuilder.() -> Unit) {
             display = Display.table
             width = 100.pct
             borderCollapse = BorderCollapse.separate
-            borderSpacing = 0.5.em
-            margin = (-0.5).em
+            borderSpacing = 0.2.em
             marginTop = 1.em
             tableLayout = TableLayout.fixed
         }
@@ -262,17 +339,13 @@ private fun ChildrenBuilder.projectRow(builder: ChildrenBuilder.() -> Unit) {
     }
 }
 
-private fun ChildrenBuilder.buildProjectCell(project: Project, isMarginLeftNeeded: Boolean) {
+private fun ChildrenBuilder.buildProjectCell(project: Project) {
     ReactHTML.td {
         css {
             backgroundColor = white
             padding = 0.75.em
             display = Display.tableCell
             verticalAlign = VerticalAlign.top
-
-            if (isMarginLeftNeeded) {
-                marginLeft = 0.5.em
-            }
         }
         div {
             css {

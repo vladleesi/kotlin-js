@@ -2,18 +2,17 @@ package style
 
 import csstype.PropertiesBuilder
 import kotlinx.css.*
-import kotlinx.css.Color
-import kotlinx.css.Margin
-import kotlinx.css.TextAlign
-import web.cssom.*
-import web.cssom.Display
-import web.cssom.JustifyContent
+import web.cssom.AlignContent
+import web.cssom.TextDecoration
 import web.cssom.px
 import web.dom.document
 
 val appStyle = document.createElement("style").apply {
 
     val styles = CssBuilder().apply {
+        html {
+            scrollBehavior = ScrollBehavior.smooth
+        }
         body {
             width = LinearDimension("65%")
             textAlign = TextAlign.center
@@ -25,6 +24,7 @@ val appStyle = document.createElement("style").apply {
 
             media("screen and (max-width: 767px)") {
                 // mobile styles
+                width = LinearDimension("85%")
             }
         }
     }
@@ -32,18 +32,12 @@ val appStyle = document.createElement("style").apply {
     innerHTML = styles.toString()
 }
 
-fun PropertiesBuilder.buildFooterStyle() {
-    display = Display.flex
-    alignItems = AlignItems.center
-    justifyContent = JustifyContent.spaceBetween
-    marginTop = 32.px
-}
-
-fun PropertiesBuilder.buildFooterLinkStyle() {
+fun PropertiesBuilder.buildHeaderLinkStyle() {
     color = white
     textDecoration = TextDecoration.underline
     textDecorationColor = accent
-    textDecorationThickness = 1.5.px
+    textDecorationThickness = 2.px
+    textUnderlineOffset = 3.px
     hover {
         color = hoverOnWhiteColor
     }
