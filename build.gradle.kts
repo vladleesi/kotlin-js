@@ -1,5 +1,5 @@
 plugins {
-    kotlin("js") version "1.9.23"
+    kotlin("multiplatform") version "2.0.20"
 }
 
 group = "dev.vladleesi"
@@ -9,26 +9,26 @@ repositories {
     mavenCentral()
 }
 
-dependencies {
-    implementation(libs.kotlin.wrappers.react)
-    implementation(libs.kotlin.wrappers.react.dom)
-    implementation(libs.kotlin.wrappers.react.router)
-    implementation(libs.kotlin.wrappers.react.router.dom)
-    implementation(libs.kotlin.wrappers.emotion)
-    implementation(libs.kotlin.wrappers.css)
-
-    // Test
-    testImplementation(kotlin("test"))
-}
-
 kotlin {
-    js(IR) {
+    js {
         binaries.executable()
         browser {
             commonWebpackConfig {
                 cssSupport {
                     enabled.set(true)
                 }
+            }
+        }
+    }
+    sourceSets {
+        val jsMain by getting {
+            dependencies {
+                implementation(libs.kotlin.wrappers.react)
+                implementation(libs.kotlin.wrappers.react.dom)
+                implementation(libs.kotlin.wrappers.react.router)
+                implementation(libs.kotlin.wrappers.react.router.dom)
+                implementation(libs.kotlin.wrappers.emotion)
+                implementation(libs.kotlin.wrappers.css)
             }
         }
     }

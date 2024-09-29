@@ -32,8 +32,8 @@ val HomePage = FC {
             fontSize = 20.px
         }
         a {
-//            css { buildHeaderLinkStyle() }
-//            href = "/"
+            css { buildLinkStyle(textColor = white, textOnHoverColor = hoverOnWhiteColor) }
+            href = "/"
             +"@vladleesi"
         }
         nav {
@@ -44,7 +44,6 @@ val HomePage = FC {
                     listStyleType = none
                 }
                 li {
-
                     a {
                         css { buildHeaderLinkStyle() }
                         href = "#Welcome"
@@ -85,7 +84,7 @@ val HomePage = FC {
                 fontSize = 36.px
                 textAlign = TextAlign.center
             }
-            +"Site Under Construction"
+            +"> This site is currently under development..."
         }
 
 
@@ -120,7 +119,11 @@ val HomePage = FC {
                 css {
                     color = accent
                 }
-                +"@vladleesi"
+                a {
+                    css { buildLinkStyle(textColor = accent, textOnHoverColor = hoverOnAccentColor) }
+                    href = "/"
+                    +"@vladleesi"
+                }
             }
             +"."
         }
@@ -139,7 +142,7 @@ val HomePage = FC {
                     project = Project(
                         tags = listOf("Kotlin", "Compose Multiplatform", "KMP", "SwiftUI"),
                         title = "Braindance",
-                        description = "Explore games, add favorites, get details, follow release calendar, and read game news. Multiplatform app for Android, iOS, Desktop. Built with KMM & Jetpack Compose.",
+                        description = "Explore games, add favorites, get details, follow release calendar, and read game news. Multiplatform app for Android, iOS, Desktop. Built with KMP & Jetpack Compose.",
                         redirectUrl = "https://github.com/vladleesi/braindance-app"
                     )
                 )

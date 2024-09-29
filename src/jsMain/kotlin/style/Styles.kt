@@ -43,6 +43,17 @@ fun PropertiesBuilder.buildHeaderLinkStyle() {
     }
 }
 
+fun PropertiesBuilder.buildLinkStyle(
+    textColor: web.cssom.Color,
+    textOnHoverColor: web.cssom.Color
+) {
+    color = textColor
+    textDecoration = TextDecoration.fromFont
+    hover {
+        color = textOnHoverColor
+    }
+}
+
 fun PropertiesBuilder.buildBodyLinkStyle() {
     color = white
     textDecoration = TextDecoration.underline
