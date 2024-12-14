@@ -2,10 +2,12 @@ package style
 
 import csstype.PropertiesBuilder
 import kotlinx.css.*
-import web.cssom.AlignContent
-import web.cssom.TextDecoration
+import web.cssom.TextDecorationLine
+import web.cssom.TextDecorationStyle
 import web.cssom.px
 import web.dom.document
+
+val bodyContentFontSize = 28.px
 
 val appStyle = document.createElement("style").apply {
 
@@ -14,7 +16,8 @@ val appStyle = document.createElement("style").apply {
             scrollBehavior = ScrollBehavior.smooth
         }
         body {
-            width = LinearDimension("65%")
+            width = LinearDimension("100%")
+            maxWidth = LinearDimension("48rem")
             textAlign = TextAlign.center
             margin = Margin(LinearDimension.auto)
             fontFamily = "Roboto Slab, sans-serif"
@@ -32,46 +35,19 @@ val appStyle = document.createElement("style").apply {
     innerHTML = styles.toString()
 }
 
-fun PropertiesBuilder.buildHeaderLinkStyle() {
-    color = white
-    textDecoration = TextDecoration.underline
-    textDecorationColor = accent
-    textDecorationThickness = 2.px
-    textUnderlineOffset = 3.px
-    hover {
-        color = hoverOnWhiteColor
-    }
-}
-
-fun PropertiesBuilder.buildLinkStyle(
+fun PropertiesBuilder.buildContentLinkStyle(
     textColor: web.cssom.Color,
     textOnHoverColor: web.cssom.Color
 ) {
     color = textColor
-    textDecoration = TextDecoration.fromFont
+    textDecorationLine = TextDecorationLine.underline
+    textUnderlineOffset = 4.px
+    textDecorationThickness = 1.5.px
+    textDecorationStyle = TextDecorationStyle.wavy
+    textDecorationColor = accent
     hover {
         color = textOnHoverColor
-    }
-}
-
-fun PropertiesBuilder.buildBodyLinkStyle() {
-    color = white
-    textDecoration = TextDecoration.underline
-    textDecorationColor = accent
-    textDecorationThickness = 1.5.px
-    hover {
-        color = hoverOnWhiteColor
-    }
-}
-
-fun PropertiesBuilder.buildContentLinkStyle() {
-    color = black
-    textDecoration = TextDecoration.underline
-    textDecorationColor = accent
-    textDecorationThickness = 4.px
-    alignContent = AlignContent.center
-    hover {
-        color = hoverOnBlackColor
+        textDecorationColor = hoverOnAccentColor
     }
 }
 
@@ -80,4 +56,19 @@ fun PropertiesBuilder.buildContentTextBackgroundStyle() {
     paddingLeft = 2.px
     paddingRight = 2.px
     color = backgroundBlack
+}
+
+fun PropertiesBuilder.buildContentTextWavyStyle(
+    textColor: web.cssom.Color,
+    textOnHoverColor: web.cssom.Color
+) {
+    color = textColor
+    textDecorationLine = TextDecorationLine.underline
+    textUnderlineOffset = 10.px
+    textDecorationStyle = TextDecorationStyle.wavy
+    textDecorationColor = accent
+    hover {
+        color = hoverOnWhiteColor
+        textDecorationColor = textOnHoverColor
+    }
 }

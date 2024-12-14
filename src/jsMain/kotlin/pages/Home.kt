@@ -3,68 +3,69 @@ package pages
 import emotion.react.css
 import react.ChildrenBuilder
 import react.FC
-import react.dom.html.ReactHTML
 import react.dom.html.ReactHTML.a
 import react.dom.html.ReactHTML.div
 import react.dom.html.ReactHTML.footer
 import react.dom.html.ReactHTML.header
 import react.dom.html.ReactHTML.img
-import react.dom.html.ReactHTML.li
-import react.dom.html.ReactHTML.nav
 import react.dom.html.ReactHTML.p
 import react.dom.html.ReactHTML.span
-import react.dom.html.ReactHTML.ul
 import react.router.Outlet
 import style.*
 import web.cssom.*
-import web.cssom.None.Companion.none
+import web.cssom.atrule.maxWidth
 import web.window.WindowTarget
 
-val HomePage = FC {
+private const val linkedIn = "https://www.linkedin.com/in/vladkochetov"
+private const val github = "https://github.com/vladleesi"
+private const val devTo = "https://dev.to/vladleesi"
+private const val twitter = "https://twitter.com/vladleesi"
 
+val HomePage = FC {
     header {
         css {
             justifyContent = JustifyContent.spaceBetween
-            alignItems = AlignItems.center
             display = Display.flex
-            width = 100.pct
             paddingTop = 1.em
-            fontSize = 20.px
-        }
-        a {
-            css { buildLinkStyle(textColor = white, textOnHoverColor = hoverOnWhiteColor) }
-            href = "/"
-            +"@vladleesi"
-        }
-        nav {
-            ul {
-                css {
-                    display = Display.flex
-                    columnGap = 1.em
-                    listStyleType = none
-                }
-                li {
-                    a {
-                        css { buildHeaderLinkStyle() }
-                        href = "#Welcome"
-                        +"Welcome"
-                    }
-                }
-                li {
-                    a {
-                        css { buildHeaderLinkStyle() }
-                        href = "#Projects"
-                        +"Projects"
-                    }
-                }
-                li {
-                    a {
-                        css { buildHeaderLinkStyle() }
-                        href = "#Contact"
-                        +"Contact"
-                    }
-                }
+
+            media(maxWidth(768.px)) {
+                flexDirection = FlexDirection.column
+                alignItems = AlignItems.flexStart
+                gap = 1.em
             }
+        }
+        span {
+            css {
+                display = Display.flex
+                flexDirection = FlexDirection.column
+                alignItems = AlignItems.flexStart
+            }
+            div {
+                css {
+                    color = white
+                    fontSize = bodyContentFontSize
+                }
+                +"Vladislav Kochetov"
+            }
+            div {
+                css {
+                    color = white
+                    fontSize = 16.px
+                }
+                +"Mobile Software Engineer"
+            }
+        }
+        span {
+            css {
+                display = Display.flex
+                columnGap = 1.em
+                paddingTop = 8.px
+                alignItems = AlignItems.flexStart
+            }
+            buildSocialUrl(github, "./github.svg", "GitHub")
+            buildSocialUrl(linkedIn, "./linkedIn.svg", "LinkedIn")
+            buildSocialUrl(devTo, "./dev-to.svg", "dev.to")
+            buildSocialUrl(twitter, "./twitter-x.svg", "X (Twitter)")
         }
     }
 
@@ -80,36 +81,10 @@ val HomePage = FC {
 
         div {
             css {
-                marginTop = 40.px
-                fontSize = 36.px
-                textAlign = TextAlign.center
+                marginTop = 64.px
+                fontSize = bodyContentFontSize
             }
-            +"> This site is currently under development..."
-        }
-
-
-        img {
-            css {
-                width = 20.pct
-                marginTop = 3.em
-            }
-            id = "Welcome"
-            src = "https://avatars.githubusercontent.com/vladleesi"
-            alt = "Some handsome guy"
-        }
-
-        div {
-            css {
-                marginTop = 1.em
-                fontSize = 36.px
-            }
-            +"Hi there!"
-        }
-        div {
-            css {
-                fontSize = 36.px
-            }
-            +"I'm "
+            +"Hi there! I'm "
             span {
                 css { buildContentTextBackgroundStyle() }
                 +"developing Android applications"
@@ -120,8 +95,9 @@ val HomePage = FC {
                     color = accent
                 }
                 a {
-                    css { buildLinkStyle(textColor = accent, textOnHoverColor = hoverOnAccentColor) }
-                    href = "/"
+                    css { buildContentTextWavyStyle(textColor = white, textOnHoverColor = hoverOnAccentColor) }
+                    href = github
+                    target = WindowTarget._blank
                     +"@vladleesi"
                 }
             }
@@ -130,78 +106,69 @@ val HomePage = FC {
         div {
             id = "Projects"
             css {
-                marginTop = 64.px
-                fontSize = 36.px
+                marginTop = 2.em
+                fontSize = bodyContentFontSize
             }
             +"Projects"
         }
 
-        projectTable {
-            projectRow {
-                buildProjectCell(
-                    project = Project(
-                        tags = listOf("Kotlin", "Compose Multiplatform", "KMP", "SwiftUI"),
-                        title = "Braindance",
-                        description = "Explore games, add favorites, get details, follow release calendar, and read game news. Multiplatform app for Android, iOS, Desktop. Built with KMP & Jetpack Compose.",
-                        redirectUrl = "https://github.com/vladleesi/braindance-app"
-                    )
-                )
-                buildProjectCell(
-                    project = Project(
-                        tags = listOf("Kotlin", "Android SDK"),
-                        title = "Kutilicious",
-                        description = "Lightweight library with a set of small Kotlin and Android extensions for a better development experience.",
-                        redirectUrl = "https://github.com/vladleesi/kutilicious"
-                    )
-                )
-            }
-
-            projectRow {
-                buildProjectCell(
-                    project = Project(
-                        tags = listOf("Kotlin/JS", "HTML", "CSS", "React"),
-                        title = "Personal website",
-                        description = "Personal website developed in Kotlin/JS. Why? I don't know, but it was fun.",
-                        redirectUrl = "https://github.com/vladleesi/vladleesi.github.io"
-                    )
-                )
-                buildProjectCell(
-                    project = Project(
-                        tags = listOf(
-                            "Kotlin", "Compose Multiplatform", "KMP"
-                        ),
-                        title = "Factastic",
-                        description = "Useless facts every day! Here's an example of a multiplatform app with shared UI and network logic built with Kotlin Multiplatform and Compose Multiplatform for Android, iOS and Desktop.",
-                        redirectUrl = "https://github.com/vladleesi/factastic"
-                    )
-                )
-            }
-
-            projectRow {
-                buildProjectCell(
-                    project = Project(
-                        tags = listOf("Kotlin", "Compose Multiplatform"),
-                        title = "Yet Another Calculator (YAC)",
-                        description = "Behold, here it is – yet another calculator! This marvel of innovation will calculate stuff, just like countless others before it. Built for Android and iOS using Compose Multiplatform.",
-                        redirectUrl = "https://github.com/vladleesi/yet-another-calculator"
-                    )
-                )
-                buildProjectCell(
-                    project = Project(
-                        tags = listOf("Kotlin", "Android SDK"),
-                        title = "Scanmate",
-                        description = "A simple QR code scanner with tactile and audio feedback. You can also save and view previously scanned codes.",
-                        redirectUrl = "https://github.com/vladleesi/scanmate"
-                    )
-                )
-            }
-        }
+        buildProjectBlock(
+            project = Project(
+                tags = listOf("Kotlin", "Compose Multiplatform", "KMP", "SwiftUI"),
+                title = "Braindance",
+                description = "Explore games, add favorites, get details, follow release calendar, and read game news. Multiplatform app for Android, iOS, Desktop. Built with KMP & Jetpack Compose.",
+                redirectUrl = "https://github.com/vladleesi/braindance-app"
+            )
+        )
+        buildProjectBlock(
+            project = Project(
+                tags = listOf("Kotlin", "Android SDK"),
+                title = "Kutilicious",
+                description = "Lightweight library with a set of small Kotlin and Android extensions for a better development experience.",
+                redirectUrl = "https://github.com/vladleesi/kutilicious"
+            )
+        )
+        buildProjectBlock(
+            project = Project(
+                tags = listOf("Kotlin/JS", "HTML", "CSS", "React"),
+                title = "Personal website",
+                description = "Personal website developed in Kotlin/JS. Why? I don't know, but it was fun.",
+                redirectUrl = "https://github.com/vladleesi/vladleesi.github.io"
+            )
+        )
+        buildProjectBlock(
+            project = Project(
+                tags = listOf(
+                    "Kotlin", "Compose Multiplatform", "KMP"
+                ),
+                title = "Factastic",
+                description = "Useless facts every day! Here's an example of a multiplatform app with shared UI and network logic built with Kotlin Multiplatform and Compose Multiplatform for Android, iOS and Desktop.",
+                redirectUrl = "https://github.com/vladleesi/factastic"
+            )
+        )
+        buildProjectBlock(
+            project = Project(
+                tags = listOf("Kotlin", "Compose Multiplatform"),
+                title = "Yet Another Calculator (YAC)",
+                description = "Behold, here it is – yet another calculator! This marvel of innovation will calculate stuff, just like countless others before it. Built for Android and iOS using Compose Multiplatform.",
+                redirectUrl = "https://github.com/vladleesi/yet-another-calculator"
+            )
+        )
+        buildProjectBlock(
+            project = Project(
+                tags = listOf("Kotlin", "Android SDK"),
+                title = "Scanmate",
+                description = "A simple QR code scanner with tactile and audio feedback. You can also save and view previously scanned codes.",
+                redirectUrl = "https://github.com/vladleesi/scanmate"
+            )
+        )
 
         div {
             id = "Contact"
             css {
-                marginTop = 64.px
-                fontSize = 36.px
+                marginTop = 2.em
+                marginBottom = 1.em
+                fontSize = bodyContentFontSize
             }
             +"Contact"
         }
@@ -210,78 +177,22 @@ val HomePage = FC {
             css {
                 display = Display.flex
                 justifyContent = JustifyContent.spaceBetween
-                marginTop = 2.em
                 marginBottom = 2.em
             }
             div {
                 div {
                     css {
-                        maxWidth = 400.px
-                        marginBottom = 24.px
+                        marginBottom = 16.px
                     }
                     +"If you're interested in discussing job opportunities or have any project ideas, please don't hesitate to email me. I'm keen to hear about your project and see how I can help out."
                 }
                 a {
                     css {
-                        buildHeaderLinkStyle()
-                        fontSize = 24.px
+                        buildContentLinkStyle(textColor = white, textOnHoverColor = hoverOnWhiteColor)
+                        fontSize = 20.px
                     }
                     href = "mailto:hello@vladleesi.dev"
                     +"hello@vladleesi.dev"
-                }
-            }
-
-            div {
-                +"Also you can find me here"
-                div {
-                    css {
-                        display = Display.flex
-                        justifyContent = JustifyContent.spaceBetween
-                        marginTop = 1.em
-                        fontSize = 18.px
-                    }
-                    div {
-                        div {
-                            a {
-                                css { buildHeaderLinkStyle() }
-                                href = "https://github.com/vladleesi"
-                                target = WindowTarget._blank
-                                +"GitHub"
-                            }
-                        }
-                        div {
-                            css {
-                                marginTop = 0.5.em
-                            }
-                            a {
-                                css { buildHeaderLinkStyle() }
-                                href = "https://dev.to/vladleesi"
-                                target = WindowTarget._blank
-                                +"Dev.to"
-                            }
-                        }
-                    }
-                    div {
-                        div {
-                            a {
-                                css { buildHeaderLinkStyle() }
-                                href = "https://www.linkedin.com/in/vladkochetov/"
-                                target = WindowTarget._blank
-                                +"LinkedIn"
-                            }
-                        }
-                        div {
-                            css {
-                                marginTop = 0.5.em
-                            }
-                            a {
-                                css { buildHeaderLinkStyle() }
-                                href = "https://twitter.com/vladleesi"
-                                target = WindowTarget._blank
-                                +"Twitter"
-                            }
-                        }
-                    }
                 }
             }
         }
@@ -301,7 +212,7 @@ val HomePage = FC {
             }
             +"Built on "
             a {
-                css { buildBodyLinkStyle() }
+                css { buildContentLinkStyle(textColor = white, textOnHoverColor = hoverOnWhiteColor) }
                 href = "https://kotlinlang.org/docs/js-overview.html"
                 target = WindowTarget._blank
                 +"Kotlin/JS"
@@ -309,7 +220,7 @@ val HomePage = FC {
             +", source code on "
             a {
                 css {
-                    buildBodyLinkStyle()
+                    buildContentLinkStyle(textColor = white, textOnHoverColor = hoverOnWhiteColor)
                 }
                 href = "https://github.com/vladleesi/vladleesi.github.io"
                 target = WindowTarget._blank
@@ -322,67 +233,38 @@ val HomePage = FC {
     Outlet()
 }
 
-private fun ChildrenBuilder.projectTable(builder: ChildrenBuilder.() -> Unit) {
-    ReactHTML.table {
-        css {
-            display = Display.table
-            width = 100.pct
-            borderCollapse = BorderCollapse.separate
-            borderSpacing = 0.2.em
-            marginTop = 1.em
-            tableLayout = TableLayout.fixed
-        }
-        builder.invoke(this)
-    }
-}
-
-private fun ChildrenBuilder.projectRow(builder: ChildrenBuilder.() -> Unit) {
-    ReactHTML.tr {
-        builder.invoke(this)
-    }
-}
-
-private fun ChildrenBuilder.buildProjectCell(project: Project) {
-    ReactHTML.td {
-        css {
-            backgroundColor = white
-            padding = 0.75.em
-            display = Display.tableCell
-            verticalAlign = VerticalAlign.top
-        }
-        div {
+private fun ChildrenBuilder.buildSocialUrl(
+    hrefString: String,
+    srcString: String,
+    altString: String
+) {
+    a {
+        href = hrefString
+        target = WindowTarget._blank
+        img {
+            src = srcString
+            alt = altString
             css {
-                display = Display.flex
-                flexFlow = FlexFlow.row
-            }
-            for (tag in project.tags) {
-                div {
-                    css {
-                        backgroundColor = backgroundBlack
-                        marginRight = 0.125.rem
-                    }
-                    div {
-                        css {
-                            paddingLeft = 0.5.em
-                            paddingRight = 0.5.em
-                            paddingTop = 0.25.em
-                            paddingBottom = 0.25.em
-                            fontSize = 14.px
-                        }
-                        +tag
-                    }
+                width = 24.px
+                height = 24.px
+                hover {
+                    filter = brightness(0.75)
                 }
             }
         }
+    }
+}
+
+private fun ChildrenBuilder.buildProjectBlock(project: Project) {
+    span {
         div {
             css {
-                fontSize = 20.px
-                fontWeight = FontWeight.bold
+                fontSize = 16.px
                 marginTop = 1.em
-                color = backgroundBlack
+                color = white
             }
             a {
-                css { buildContentLinkStyle() }
+                css { buildContentLinkStyle(textColor = white, textOnHoverColor = hoverOnWhiteColor) }
                 href = project.redirectUrl
                 target = WindowTarget._blank
                 +project.title
@@ -391,9 +273,9 @@ private fun ChildrenBuilder.buildProjectCell(project: Project) {
         if (project.description != "") {
             div {
                 css {
-                    marginTop = 1.em
-                    fontSize = 1.em
-                    color = backgroundBlack
+                    marginTop = 8.px
+                    fontSize = 16.px
+                    color = white
                 }
                 +project.description
             }
