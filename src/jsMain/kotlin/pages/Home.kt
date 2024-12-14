@@ -63,7 +63,7 @@ val HomePage = FC {
                 alignItems = AlignItems.flexStart
             }
             buildSocialUrl(github, "./github.svg", "GitHub")
-            buildSocialUrl(linkedIn, "./linkedIn.svg", "LinkedIn")
+            buildSocialUrl(linkedIn, "./linkedin.svg", "LinkedIn")
             buildSocialUrl(devTo, "./dev-to.svg", "dev.to")
             buildSocialUrl(twitter, "./twitter-x.svg", "X (Twitter)")
         }
