@@ -14,7 +14,7 @@ import web.dom.document
 private val appRouter = createBrowserRouter(
     routes = arrayOf(
         jso {
-            path = "/"
+            path = "/kotlin-js"
             element = HomePage.create()
             errorElement = Error.create()
         }
