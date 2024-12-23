@@ -133,7 +133,7 @@ val HomePage = FC {
                 tags = listOf("Kotlin/JS", "HTML", "CSS", "React"),
                 title = "Personal website",
                 description = "Personal website developed in Kotlin/JS. Why? I don't know, but it was fun.",
-                redirectUrl = "https://github.com/vladleesi/vladleesi.github.io"
+                redirectUrl = "https://github.com/vladleesi/kotlin-js"
             )
         )
         buildProjectBlock(
