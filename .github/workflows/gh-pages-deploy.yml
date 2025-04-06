@@ -25,7 +25,7 @@ jobs:
         run: ./gradlew jsBrowserDistribution
 
       - name: List distributions
-        run: ls -la build/distributions
+        run: ls -la build/dist/js/productionExecutable
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
