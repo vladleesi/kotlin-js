@@ -32,4 +32,3 @@ jobs:
         with:
           branch: master
           force: true
-          github_token: ${{ secrets.PAT }}
