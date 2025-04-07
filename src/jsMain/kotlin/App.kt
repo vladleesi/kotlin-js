@@ -11,10 +11,17 @@ import style.faviconLink
 import style.fontLink
 import web.dom.document
 
+private val mainPath =
+    if (js("process.env.NODE_ENV") == "development") {
+        "/"
+    } else {
+        "/kotlin-js"
+    }
+
 private val appRouter = createBrowserRouter(
     routes = arrayOf(
         jso {
-            path = if (js("process.env.NODE_ENV") == "development") "/" else "/kotlin-js"
+            path = mainPath
             element = HomePage.create()
             errorElement = Error.create()
         }
