@@ -1,2 +1,1 @@
-rootProject.name = "vladleesi-gh-pages"
-
+rootProject.name = "kotlin-js"
